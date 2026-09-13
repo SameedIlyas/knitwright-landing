@@ -61,22 +61,6 @@ export function GlassButton({ href, children, light = false }: { href: string; c
   );
 }
 
-/** Knitwright mark — two interlocked knit loops forming a stitch. */
-export function KnitMark({ className = "size-6" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M9 6c-3 4-3 9 0 12.5L16 26l7-7.5c3-3.5 3-8.5 0-12.5"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path d="M16 26V13M11 9.5 16 13l5-3.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 /** Section heading block: label pill, big headline, optional sub. Centered by default. */
 export function SectionHead({
   n,

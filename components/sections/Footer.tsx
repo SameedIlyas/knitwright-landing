@@ -1,5 +1,6 @@
 import { FOOTER, NAV_LINKS, SITE } from "@/lib/content";
-import { Container, KnitMark, PrimaryButton } from "@/components/ui/primitives";
+import { Container, PrimaryButton } from "@/components/ui/primitives";
+import { KnitLogo } from "@/components/ui/logo";
 import { Reveal, WordsIn } from "@/components/ui/motion";
 
 export function Footer() {
@@ -18,11 +19,8 @@ export function Footer() {
       <Container className="mt-28">
         <div className="flex flex-col gap-10 border-t border-hairline py-10 md:flex-row md:items-start md:justify-between">
           <div className="flex max-w-[22rem] flex-col gap-3">
-            <a href="#top" className="flex items-center gap-2.5 text-ink">
-              <span className="grid size-9 place-items-center rounded-full bg-ink text-white">
-                <KnitMark className="size-4.5" />
-              </span>
-              <span className="text-lg font-semibold tracking-tight">{SITE.name}</span>
+            <a href="#top" aria-label={`${SITE.name} home`} className="w-fit text-ink">
+              <KnitLogo className="h-8 w-auto" />
             </a>
             <p className="text-muted">{FOOTER.line}</p>
             <p className="eyebrow text-faint">{SITE.lockup}</p>
@@ -46,10 +44,10 @@ export function Footer() {
         </div>
       </Container>
 
-      {/* Oversized wordmark, cropped by the page edge. */}
-      <p aria-hidden="true" className="display pointer-events-none -mb-[0.2em] select-none text-center text-[clamp(4rem,1rem+17vw,17rem)] leading-none text-shell">
-        {SITE.name}
-      </p>
+      {/* Oversized lockup, its blade tip cropped by the page edge. */}
+      <div className="pointer-events-none mx-auto -mb-[3%] max-w-[1400px] select-none px-5 text-shell sm:px-8">
+        <KnitLogo className="block h-auto w-full" />
+      </div>
     </footer>
   );
 }

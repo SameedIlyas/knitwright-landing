@@ -3,11 +3,11 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { NAV_LINKS, SITE } from "@/lib/content";
-import { KnitMark } from "@/components/ui/primitives";
+import { KnitLogo, KnitMark } from "@/components/ui/logo";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-/** Floating pill nav: mark · Menu · Join the waitlist. Menu opens a frosted sheet. */
+/** Floating pill nav: logo · Menu · Join the waitlist. Menu opens a frosted sheet. */
 export function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -41,9 +41,10 @@ export function Nav() {
           <a
             href="#top"
             aria-label={`${SITE.name} home`}
-            className={`glass grid size-14 place-items-center rounded-full text-white transition-colors duration-500 ${scrolled ? "bg-ink/80" : ""}`}
+            className={`glass flex h-14 min-w-14 items-center justify-center rounded-full px-4 text-white transition-colors duration-500 sm:px-5 ${scrolled ? "bg-ink/80" : ""}`}
           >
-            <KnitMark className="size-6" />
+            <KnitMark className="h-5 w-auto sm:hidden" />
+            <KnitLogo className="hidden h-6 w-auto sm:block" />
           </a>
           <div className={`glass flex h-14 items-center gap-1 rounded-full p-1.5 transition-colors duration-500 ${scrolled ? "bg-ink/80" : ""}`}>
             <button
