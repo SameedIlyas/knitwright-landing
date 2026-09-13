@@ -1,0 +1,758 @@
+{
+  "crew": {
+    "viewBox": {
+      "minX": -76,
+      "minY": -44,
+      "w": 592,
+      "h": 558
+    },
+    "silhouette": "M280 78 Q275 60 290 56 L336 78 Q348 84 354 100 L378 162 Q380 168 374 171 L336 188 Q328 191 325 182 L314 154 L314 408 Q314 414 308 414 L220 414 L132 414 Q126 414 126 408 L126 154 L115 182 Q112 191 104 188 L66 171 Q60 168 62 162 L86 100 Q92 84 104 78 L150 56 Q165 60 160 78 Q220 112 280 78 Z",
+    "collar": "M163 86 Q220 116 277 86",
+    "placket": null,
+    "measures": [
+      {
+        "id": "chest",
+        "marker": "A",
+        "point": "Chest A",
+        "sizes": {
+          "s": 51,
+          "m": 54,
+          "l": 57
+        },
+        "tol": {
+          "plus": 1,
+          "minus": 1
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "length",
+        "marker": "B",
+        "point": "Length B",
+        "sizes": {
+          "s": 69,
+          "m": 72,
+          "l": 75
+        },
+        "tol": {
+          "plus": 1.5,
+          "minus": 1.5
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "sleeve",
+        "marker": "C",
+        "point": "Sleeve C",
+        "sizes": {
+          "s": 20,
+          "m": 21,
+          "l": 22
+        },
+        "tol": {
+          "plus": 0.5,
+          "minus": 0.5
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "shoulder",
+        "marker": "D",
+        "point": "Shoulder D",
+        "sizes": {
+          "s": 43,
+          "m": 45,
+          "l": 47
+        },
+        "tol": {
+          "plus": 1,
+          "minus": 1
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "hemSweep",
+        "marker": "E",
+        "point": "Hem sweep",
+        "sizes": {
+          "s": 47.6,
+          "m": 50.6,
+          "l": 53.6
+        },
+        "tol": {
+          "plus": 1,
+          "minus": 1
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "sideSeam",
+        "marker": "F",
+        "point": "Side seam",
+        "sizes": {
+          "s": 47.2,
+          "m": 50.2,
+          "l": 53.2
+        },
+        "tol": {
+          "plus": 1,
+          "minus": 1
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "shoulderDrop",
+        "marker": "G",
+        "point": "Shoulder drop",
+        "sizes": {
+          "s": 4.9,
+          "m": 4.9,
+          "l": 4.9
+        },
+        "tol": {
+          "plus": 0.3,
+          "minus": 0.3
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "armholeDepth",
+        "marker": "H",
+        "point": "Armhole depth",
+        "sizes": {
+          "s": 19.6,
+          "m": 19.6,
+          "l": 19.6
+        },
+        "tol": {
+          "plus": 0.5,
+          "minus": 0.5
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "backNeckDrop",
+        "marker": "J",
+        "point": "Back neck drop",
+        "sizes": {
+          "s": 2.7,
+          "m": 2.7,
+          "l": 2.7
+        },
+        "tol": {
+          "plus": 0.3,
+          "minus": 0.3
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "frontNeckDrop",
+        "marker": "K",
+        "point": "Front neck drop",
+        "sizes": {
+          "s": 7.6,
+          "m": 7.6,
+          "l": 7.6
+        },
+        "tol": {
+          "plus": 0.3,
+          "minus": 0.3
+        },
+        "unit": "cm"
+      }
+    ],
+    "seams": [],
+    "construction": [
+      "M126 408 L308 408",
+      "M370 168 Q352 182 330 184",
+      "M70 168 Q88 182 110 184"
+    ],
+    "callouts": [
+      {
+        "marker": "A",
+        "label": "A · 540",
+        "rule": "M126 269 L314 269",
+        "ticks": [
+          "M126 263 L126 275",
+          "M314 263 L314 275"
+        ],
+        "leader": "M126 269 L-6 269 L-6 266",
+        "dot": {
+          "x": 220,
+          "y": 269
+        },
+        "chip": {
+          "x": -70,
+          "y": 257,
+          "w": 64,
+          "h": 18
+        }
+      },
+      {
+        "marker": "B",
+        "label": "B · 720",
+        "rule": "M332 154 L332 414",
+        "ticks": [
+          "M326 154 L338 154",
+          "M326 414 L338 414"
+        ],
+        "leader": "M332 284 L446 284 L446 288",
+        "dot": {
+          "x": 332,
+          "y": 284
+        },
+        "chip": {
+          "x": 446,
+          "y": 279,
+          "w": 64,
+          "h": 18
+        }
+      },
+      {
+        "marker": "C",
+        "label": "C · 210",
+        "rule": "M104 78 L62 162",
+        "ticks": [
+          "M98 78 L110 78",
+          "M56 162 L68 162"
+        ],
+        "leader": "M62 162 L-6 162 L-6 156",
+        "dot": {
+          "x": 83,
+          "y": 120
+        },
+        "chip": {
+          "x": -70,
+          "y": 147,
+          "w": 64,
+          "h": 18
+        }
+      },
+      {
+        "marker": "D",
+        "label": "D · 450",
+        "rule": "M150 52 L290 52",
+        "ticks": [
+          "M150 46 L150 58",
+          "M290 46 L290 58"
+        ],
+        "leader": "M220 52 L220 -20 L214 -20",
+        "dot": {
+          "x": 220,
+          "y": 52
+        },
+        "chip": {
+          "x": 182,
+          "y": -38,
+          "w": 64,
+          "h": 18
+        }
+      }
+    ]
+  },
+  "raglan": {
+    "viewBox": {
+      "minX": -76,
+      "minY": -44,
+      "w": 592,
+      "h": 558
+    },
+    "silhouette": "M280 78 Q268.11 60 283.11 56 L339.11 78 Q351.11 84 357.11 100 L407.01 310 Q409.01 316 403.01 319 L339.11 188 Q328 191 325 182 L314 154 L314 408 Q314 414 308 414 L220 414 L132 414 Q126 414 126 408 L126 154 L115 182 Q112 191 100.89 188 L36.99 319 Q30.99 316 32.99 310 L82.89 100 Q88.89 84 100.89 78 L156.89 56 Q171.89 60 160 78 Q220 112 280 78 Z",
+    "collar": "M163 86 Q220 116 277 86",
+    "placket": null,
+    "measures": [
+      {
+        "id": "chest",
+        "marker": "A",
+        "point": "Chest A",
+        "sizes": {
+          "s": 51,
+          "m": 54,
+          "l": 57
+        },
+        "tol": {
+          "plus": 1,
+          "minus": 1
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "length",
+        "marker": "B",
+        "point": "Length B",
+        "sizes": {
+          "s": 69,
+          "m": 72,
+          "l": 75
+        },
+        "tol": {
+          "plus": 1.5,
+          "minus": 1.5
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "sleeve",
+        "marker": "C",
+        "point": "Sleeve C",
+        "sizes": {
+          "s": 57,
+          "m": 58,
+          "l": 59
+        },
+        "tol": {
+          "plus": 0.5,
+          "minus": 0.5
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "shoulder",
+        "marker": "D",
+        "point": "Shoulder D",
+        "sizes": {
+          "s": 45,
+          "m": 47,
+          "l": 49
+        },
+        "tol": {
+          "plus": 1,
+          "minus": 1
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "hemSweep",
+        "marker": "E",
+        "point": "Hem sweep",
+        "sizes": {
+          "s": 47.6,
+          "m": 50.6,
+          "l": 53.6
+        },
+        "tol": {
+          "plus": 1,
+          "minus": 1
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "sideSeam",
+        "marker": "F",
+        "point": "Side seam",
+        "sizes": {
+          "s": 47.2,
+          "m": 50.2,
+          "l": 53.2
+        },
+        "tol": {
+          "plus": 1,
+          "minus": 1
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "shoulderDrop",
+        "marker": "G",
+        "point": "Shoulder drop",
+        "sizes": {
+          "s": 4.9,
+          "m": 4.9,
+          "l": 4.9
+        },
+        "tol": {
+          "plus": 0.3,
+          "minus": 0.3
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "armholeDepth",
+        "marker": "H",
+        "point": "Armhole depth",
+        "sizes": {
+          "s": 19.6,
+          "m": 19.6,
+          "l": 19.6
+        },
+        "tol": {
+          "plus": 0.5,
+          "minus": 0.5
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "backNeckDrop",
+        "marker": "J",
+        "point": "Back neck drop",
+        "sizes": {
+          "s": 2.7,
+          "m": 2.7,
+          "l": 2.7
+        },
+        "tol": {
+          "plus": 0.3,
+          "minus": 0.3
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "frontNeckDrop",
+        "marker": "K",
+        "point": "Front neck drop",
+        "sizes": {
+          "s": 7.6,
+          "m": 7.6,
+          "l": 7.6
+        },
+        "tol": {
+          "plus": 0.3,
+          "minus": 0.3
+        },
+        "unit": "cm"
+      }
+    ],
+    "seams": [
+      "M280 112 L339.11 188",
+      "M160 112 L100.89 188"
+    ],
+    "construction": [
+      "M126 408 L308 408",
+      "M399.01 316 Q355.11 182 333.11 184",
+      "M40.99 316 Q84.89 182 106.89 184"
+    ],
+    "callouts": [
+      {
+        "marker": "A",
+        "label": "A · 540",
+        "rule": "M126 269 L314 269",
+        "ticks": [
+          "M126 263 L126 275",
+          "M314 263 L314 275"
+        ],
+        "leader": "M126 269 L-6 269 L-6 266",
+        "dot": {
+          "x": 220,
+          "y": 269
+        },
+        "chip": {
+          "x": -70,
+          "y": 257,
+          "w": 64,
+          "h": 18
+        }
+      },
+      {
+        "marker": "B",
+        "label": "B · 720",
+        "rule": "M332 154 L332 414",
+        "ticks": [
+          "M326 154 L338 154",
+          "M326 414 L338 414"
+        ],
+        "leader": "M332 284 L446 284 L446 288",
+        "dot": {
+          "x": 332,
+          "y": 284
+        },
+        "chip": {
+          "x": 446,
+          "y": 279,
+          "w": 64,
+          "h": 18
+        }
+      },
+      {
+        "marker": "C",
+        "label": "C · 580",
+        "rule": "M100.89 78 L32.99 310",
+        "ticks": [
+          "M94.89 78 L106.89 78",
+          "M26.99 310 L38.99 310"
+        ],
+        "leader": "M32.99 310 L-6 310 L-6 310",
+        "dot": {
+          "x": 66.93888888888887,
+          "y": 194
+        },
+        "chip": {
+          "x": -70,
+          "y": 301,
+          "w": 64,
+          "h": 18
+        }
+      },
+      {
+        "marker": "D",
+        "label": "D · 470",
+        "rule": "M146.89 52 L293.11 52",
+        "ticks": [
+          "M146.89 46 L146.89 58",
+          "M293.11 46 L293.11 58"
+        ],
+        "leader": "M220 52 L220 -20 L214 -20",
+        "dot": {
+          "x": 220,
+          "y": 52
+        },
+        "chip": {
+          "x": 182,
+          "y": -38,
+          "w": 64,
+          "h": 18
+        }
+      }
+    ]
+  },
+  "polo": {
+    "viewBox": {
+      "minX": -76,
+      "minY": -44,
+      "w": 592,
+      "h": 558
+    },
+    "silhouette": "M274 78 Q275 60 290 56 L336 78 Q348 84 354 100 L378 162 Q380 168 374 171 L336 188 Q328 191 325 182 L314 154 L314 408 Q314 414 308 414 L220 414 L132 414 Q126 414 126 408 L126 154 L115 182 Q112 191 104 188 L66 171 Q60 168 62 162 L86 100 Q92 84 104 78 L150 56 Q165 60 166 78 Q220 108 274 78 Z",
+    "collar": "M169 86 Q220 112 271 86",
+    "placket": "M208 102 L232 102 L232 228 L208 228 Z",
+    "measures": [
+      {
+        "id": "chest",
+        "marker": "A",
+        "point": "Chest A",
+        "sizes": {
+          "s": 51,
+          "m": 54,
+          "l": 57
+        },
+        "tol": {
+          "plus": 1,
+          "minus": 1
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "length",
+        "marker": "B",
+        "point": "Length B",
+        "sizes": {
+          "s": 69,
+          "m": 72,
+          "l": 75
+        },
+        "tol": {
+          "plus": 1.5,
+          "minus": 1.5
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "sleeve",
+        "marker": "C",
+        "point": "Sleeve C",
+        "sizes": {
+          "s": 20,
+          "m": 21,
+          "l": 22
+        },
+        "tol": {
+          "plus": 0.5,
+          "minus": 0.5
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "shoulder",
+        "marker": "D",
+        "point": "Shoulder D",
+        "sizes": {
+          "s": 43,
+          "m": 45,
+          "l": 47
+        },
+        "tol": {
+          "plus": 1,
+          "minus": 1
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "hemSweep",
+        "marker": "E",
+        "point": "Hem sweep",
+        "sizes": {
+          "s": 47.6,
+          "m": 50.6,
+          "l": 53.6
+        },
+        "tol": {
+          "plus": 1,
+          "minus": 1
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "sideSeam",
+        "marker": "F",
+        "point": "Side seam",
+        "sizes": {
+          "s": 47.2,
+          "m": 50.2,
+          "l": 53.2
+        },
+        "tol": {
+          "plus": 1,
+          "minus": 1
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "shoulderDrop",
+        "marker": "G",
+        "point": "Shoulder drop",
+        "sizes": {
+          "s": 4.9,
+          "m": 4.9,
+          "l": 4.9
+        },
+        "tol": {
+          "plus": 0.3,
+          "minus": 0.3
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "armholeDepth",
+        "marker": "H",
+        "point": "Armhole depth",
+        "sizes": {
+          "s": 19.6,
+          "m": 19.6,
+          "l": 19.6
+        },
+        "tol": {
+          "plus": 0.5,
+          "minus": 0.5
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "backNeckDrop",
+        "marker": "J",
+        "point": "Back neck drop",
+        "sizes": {
+          "s": 2.7,
+          "m": 2.7,
+          "l": 2.7
+        },
+        "tol": {
+          "plus": 0.3,
+          "minus": 0.3
+        },
+        "unit": "cm"
+      },
+      {
+        "id": "frontNeckDrop",
+        "marker": "K",
+        "point": "Front neck drop",
+        "sizes": {
+          "s": 6.7,
+          "m": 6.7,
+          "l": 6.7
+        },
+        "tol": {
+          "plus": 0.3,
+          "minus": 0.3
+        },
+        "unit": "cm"
+      }
+    ],
+    "seams": [],
+    "construction": [
+      "M126 408 L308 408",
+      "M370 168 Q352 182 330 184",
+      "M70 168 Q88 182 110 184"
+    ],
+    "callouts": [
+      {
+        "marker": "A",
+        "label": "A · 540",
+        "rule": "M126 269 L314 269",
+        "ticks": [
+          "M126 263 L126 275",
+          "M314 263 L314 275"
+        ],
+        "leader": "M126 269 L-6 269 L-6 266",
+        "dot": {
+          "x": 220,
+          "y": 269
+        },
+        "chip": {
+          "x": -70,
+          "y": 257,
+          "w": 64,
+          "h": 18
+        }
+      },
+      {
+        "marker": "B",
+        "label": "B · 720",
+        "rule": "M332 154 L332 414",
+        "ticks": [
+          "M326 154 L338 154",
+          "M326 414 L338 414"
+        ],
+        "leader": "M332 284 L446 284 L446 288",
+        "dot": {
+          "x": 332,
+          "y": 284
+        },
+        "chip": {
+          "x": 446,
+          "y": 279,
+          "w": 64,
+          "h": 18
+        }
+      },
+      {
+        "marker": "C",
+        "label": "C · 210",
+        "rule": "M104 78 L62 162",
+        "ticks": [
+          "M98 78 L110 78",
+          "M56 162 L68 162"
+        ],
+        "leader": "M62 162 L-6 162 L-6 156",
+        "dot": {
+          "x": 83,
+          "y": 120
+        },
+        "chip": {
+          "x": -70,
+          "y": 147,
+          "w": 64,
+          "h": 18
+        }
+      },
+      {
+        "marker": "D",
+        "label": "D · 450",
+        "rule": "M150 52 L290 52",
+        "ticks": [
+          "M150 46 L150 58",
+          "M290 46 L290 58"
+        ],
+        "leader": "M220 52 L220 -20 L214 -20",
+        "dot": {
+          "x": 220,
+          "y": 52
+        },
+        "chip": {
+          "x": 182,
+          "y": -38,
+          "w": 64,
+          "h": 18
+        }
+      }
+    ]
+  }
+}
