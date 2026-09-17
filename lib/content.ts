@@ -439,6 +439,91 @@ export const FAQ = {
   ],
 } as const;
 
+/* ── Home layout copy ─────────────────────────────────────────────────────
+   Short labels for the gallery and benefit rows. Every line is derived from
+   the sections above; nothing here introduces a new claim. */
+
+export const HOME_HERO = {
+  headline: ["From idea to made.", "Without managing a factory."],
+  sub: "Upload a design. A named technician signs the spec. We make it and ship it to you.",
+  card: {
+    title: "Verified for production",
+    body: "Every spec is checked for seam allowances, grading and buildability, then signed by name with a date.",
+    who: "Adeel R.",
+    role: "Studio technician, Sialkot",
+    note: "Reviewer name is illustrative.",
+  },
+  marquee: ["Crew", "V-neck", "Raglan", "Polo", "Henley", "Training tees", "Club kit", "Base layers", "Run tops"],
+} as const;
+
+export const GALLERY = {
+  title: "One product, from the first sketch to the last carton.",
+  sub: "The hard part was never the design. It's the engineering of the spec, and the execution behind it.",
+  panels: [
+    { key: "spec", title: "Spec", points: ["Annotated technical flats", "Graded size run", "Construction, fabric and trims"] },
+    { key: "signoff", title: "Sign-off", points: ["Seam allowances", "Grading logic", "Buildability", "Tolerances"] },
+    { key: "costing", title: "Costing", points: ["Materials and trims", "Make", "Finishing and pack", "QA and spec"] },
+    { key: "make", title: "Make", points: ["Sample", "Bulk", "Final QC"] },
+    { key: "escrow", title: "Escrow", points: ["Deposit at order", "Balance held", "You release it"] },
+    { key: "reorder", title: "Reorder", points: ["Same spec", "Same line", "Same price band"] },
+  ],
+} as const;
+
+export const BENEFITS = {
+  rows: [
+    {
+      key: "spec",
+      title: "We draft the spec.",
+      body: "Upload a photo, sketch, competitor product or moodboard. Knitwright drafts annotated flats, a graded measurement table with tolerances, construction notes, fabric and trims.",
+    },
+    {
+      key: "signoff",
+      title: "A technician signs it.",
+      body: "A technician in our studio checks what software can't be trusted to — seam allowances, grading logic, buildability — and signs it by name, with a date.",
+    },
+    {
+      key: "make",
+      title: "We make it.",
+      body: "Production runs on lines we own and manage. You see one quality tier, a price, a lead time, and a guarantee. No factory to choose.",
+    },
+    {
+      key: "escrow",
+      title: "You release the money.",
+      body: "Deposit into escrow at order. The balance is held until QC passes and you release it. Verified defects are money back.",
+    },
+    {
+      key: "reorder",
+      title: "Reorder in one click.",
+      body: "Same spec, same line, same price band. No re-briefing, no re-sourcing.",
+    },
+  ],
+} as const;
+
+export const ASSISTANT = {
+  greeting: "What are we making?",
+  hint: "Describe a change in plain language.",
+  input: "raglan, long sleeves, cobalt body",
+  /** Each suggestion chip and the reply it produces, shown in turn. */
+  turns: [
+    {
+      chip: "Make it a raglan",
+      reply: "Switched to a raglan sleeve. The flat, the pattern pieces and the graded table all moved with it.",
+    },
+    {
+      chip: "Long sleeves",
+      reply: "Sleeves are now long. Sleeve length is re-graded across the size run, with a tolerance on every point.",
+    },
+    {
+      chip: "Cobalt body",
+      reply: "Body panels set to cobalt. The spec is marked unverified until a technician re-checks it.",
+    },
+    {
+      chip: "Cap sleeves on the polo",
+      reply: "Polos come in short and three-quarter sleeves, from the same style rules production uses.",
+    },
+  ],
+} as const;
+
 export const FOOTER = {
   cta: "You will never talk to a factory.",
   ctaAccent: "That's the feature.",

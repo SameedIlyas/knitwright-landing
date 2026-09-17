@@ -1,18 +1,15 @@
-import { Nav } from "@/components/sections/Nav";
-import { Hero } from "@/components/sections/Hero";
-import { BuiltFor } from "@/components/sections/BuiltFor";
-import { StatusQuo } from "@/components/sections/StatusQuo";
-import { WhatWeDo } from "@/components/sections/WhatWeDo";
-import { HowItWorks } from "@/components/sections/HowItWorks";
-import { SpecLive } from "@/components/sections/SpecLive";
-import { Verification } from "@/components/sections/Verification";
-import { Production } from "@/components/sections/Production";
-import { StudioBand } from "@/components/sections/StudioBand";
-import { WhyKnitwright } from "@/components/sections/WhyKnitwright";
-import { Protection, Reorder } from "@/components/sections/Protection";
-import { EarlyAccess } from "@/components/sections/EarlyAccess";
+import { Nav } from "@/components/home/Nav";
+import { Hero } from "@/components/home/Hero";
+import { Gallery } from "@/components/home/Gallery";
+import { Showcase } from "@/components/home/Showcase";
+import { Benefits } from "@/components/home/Benefits";
+import { SpecLive } from "@/components/home/SpecLive";
+import { Production } from "@/components/home/Production";
+import { Why } from "@/components/home/Why";
+import { BuiltFor } from "@/components/home/BuiltFor";
+import { EarlyAccess } from "@/components/home/EarlyAccess";
+import { Footer } from "@/components/home/Footer";
 import { Faq } from "@/components/sections/Faq";
-import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
@@ -26,19 +23,17 @@ export default function Home() {
       <Nav />
       <main id="main">
         <Hero />
-        <BuiltFor />
-        <StatusQuo />
-        <WhatWeDo />
-        <HowItWorks />
+        <Gallery />
+        <Showcase />
+        <Benefits />
         <SpecLive />
-        <Verification />
         <Production />
-        <StudioBand />
-        <WhyKnitwright />
-        <Protection />
-        <Reorder />
+        <Why />
+        <BuiltFor />
+        <div data-nav-theme="light">
+          <Faq />
+        </div>
         <EarlyAccess />
-        <Faq />
       </main>
       <Footer />
     </>

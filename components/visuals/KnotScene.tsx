@@ -28,7 +28,7 @@ function ribTexture(): THREE.CanvasTexture {
   return t;
 }
 
-function Knot({ still }: { still: boolean }) {
+function Knot({ still, color }: { still: boolean; color: string }) {
   const ref = useRef<THREE.Mesh>(null);
   const { pointer, viewport } = useThree();
   const bump = useMemo(() => ribTexture(), []);
@@ -50,7 +50,7 @@ function Knot({ still }: { still: boolean }) {
     <mesh ref={ref} scale={scale} rotation={[0.35, 0, 0]}>
       <torusKnotGeometry args={[1.5, 0.5, 360, 64, 2, 3]} />
       <meshPhysicalMaterial
-        color="#1a1b1f"
+        color={color}
         roughness={0.55}
         metalness={0.1}
         sheen={0.55}
@@ -65,7 +65,7 @@ function Knot({ still }: { still: boolean }) {
   );
 }
 
-export default function KnotScene({ still = false }: { still?: boolean }) {
+export default function KnotScene({ still = false, color = "#1a1b1f" }: { still?: boolean; color?: string }) {
   return (
     <Canvas
       dpr={[1, 1.75]}
@@ -77,7 +77,7 @@ export default function KnotScene({ still = false }: { still?: boolean }) {
       <directionalLight position={[4, 5, 6]} intensity={2.4} />
       <directionalLight position={[-6, -2, 2]} intensity={0.9} color="#c9d2ff" />
       <pointLight position={[0, -4, 3]} intensity={10} color="#ffd9ea" />
-      <Knot still={still} />
+      <Knot still={still} color={color} />
     </Canvas>
   );
 }

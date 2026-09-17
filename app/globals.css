@@ -218,10 +218,66 @@ body {
 }
 }
 
+/* ── Home motion ──────────────────────────────────────────────────────────
+   The home page keeps motion to a few deliberate moments: the hero line
+   unfolding once, the style strip, gallery expansion on hover, and the
+   button fill. Timings live here so every instance matches. */
+@keyframes morph-reveal {
+  0% { transform: scaleY(0) scaleX(0.8); opacity: 0; }
+  60% { transform: scaleY(1.05) scaleX(1.02); opacity: 0.9; }
+  100% { transform: scaleY(1) scaleX(1); opacity: 1; }
+}
+.morph-reveal {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  animation: morph-reveal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+
+/* Slow drift standing in for footage on the hero photograph. */
+@keyframes hero-drift {
+  from { transform: scale(1.02) translate3d(0, 0, 0); }
+  to { transform: scale(1.1) translate3d(-1.5%, -1%, 0); }
+}
+.hero-drift {
+  animation: hero-drift 24s ease-in-out infinite alternate;
+}
+
+/* Circular fill that grows out of a pill button's arrow chip. `--chip-x` is
+   the chip centre measured from the button's right edge. */
+@keyframes chip-fill {
+  from { clip-path: circle(0px at calc(100% - var(--chip-x, 28px)) 50%); }
+  to { clip-path: circle(150% at calc(100% - var(--chip-x, 28px)) 50%); }
+}
+.chip-fill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  clip-path: circle(0px at calc(100% - var(--chip-x, 28px)) 50%);
+  transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.group:hover > .chip-fill,
+.group:focus-visible > .chip-fill {
+  clip-path: circle(150% at calc(100% - var(--chip-x, 28px)) 50%);
+}
+.chip-fill-auto > .chip-fill {
+  animation: chip-fill 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .marquee-track,
-  .pulse-ring {
+  .pulse-ring,
+  .hero-drift {
     animation: none;
+  }
+  .morph-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .chip-fill-auto > .chip-fill {
+    animation: none;
+    clip-path: circle(150% at 50% 50%);
   }
 }
