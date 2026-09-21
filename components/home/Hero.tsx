@@ -54,9 +54,7 @@ function SignOffCard() {
         </p>
         <p className="mt-2.5 text-[0.95rem] leading-relaxed text-white/85">{c.body}</p>
         <div className="mt-4 flex items-center gap-3.5">
-          <span className="grid size-12 place-items-center rounded-full bg-[image:var(--thread)] text-ink">
-            <KnitMark className="size-5" />
-          </span>
+          <Avatar name={c.who} />
           <span>
             <span className="block font-medium">{c.who}</span>
             <span className="block text-sm text-white/65">{c.role}</span>
@@ -71,6 +69,32 @@ function SignOffCard() {
         />
       </div>
     </aside>
+  );
+}
+
+/**
+ * Profile picture for the signing technician: initials on a cobalt disc with a
+ * thread ring and a verified tick. The name in the card is illustrative, so this
+ * stands in for a photo rather than pretending a stranger is that person.
+ */
+function Avatar({ name }: { name: string }) {
+  const initials = name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+  return (
+    <span className="relative shrink-0" aria-hidden="true">
+      <span className="thread-ring grid size-12 place-items-center rounded-full bg-[linear-gradient(145deg,#3a55ff,#1c2a8f)] text-[0.95rem] font-medium tracking-tight text-white shadow-[0_8px_20px_-8px_rgba(43,70,240,0.8)]">
+        {initials}
+      </span>
+      <span className="absolute -bottom-0.5 -right-0.5 grid size-[1.15rem] place-items-center rounded-full bg-ok ring-2 ring-[#2a2c31]">
+        <svg viewBox="0 0 16 16" className="size-2.5 text-white" fill="none">
+          <path d="m4 8.5 2.5 2.5L12 5.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </span>
+    </span>
   );
 }
 
