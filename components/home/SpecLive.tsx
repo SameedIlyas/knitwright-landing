@@ -18,8 +18,8 @@ export function SpecLive() {
   const changed = style !== "crew";
 
   return (
-    <section id="spec-live" data-nav-theme="light" className="scroll-mt-24 overflow-hidden bg-[#f7f8fb] py-28 sm:py-32">
-      <Frame className="grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr]">
+    <section id="spec-live" data-nav-theme="light" className="scroll-mt-24 overflow-hidden bg-[#f7f8fb] py-20 sm:py-32">
+      <Frame className="grid items-center gap-12 sm:gap-16 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <Display className="text-[clamp(3rem,1.6rem+5vw,6.2rem)] leading-[0.98] tracking-[-0.05em] text-ink-2">Change the sleeve.</Display>
           <p className="mt-8 max-w-[27rem] text-[clamp(1.2rem,1rem+0.6vw,1.7rem)] font-light leading-snug tracking-[-0.01em] text-ink-2">
@@ -47,18 +47,18 @@ export function SpecLive() {
           </div>
         </div>
 
-        <div className="relative mx-auto h-[34rem] w-full max-w-[40rem] [perspective:1600px] sm:h-[40rem]">
-          <div className="absolute inset-x-[8%] bottom-[4%] top-[6%] rounded-[2.5rem] bg-white p-6 shadow-[0_60px_120px_-50px_rgba(15,16,18,0.55)] [transform:rotateX(12deg)_rotateZ(-7deg)] sm:p-8">
-            <div className="eng-grid flex h-full items-center justify-center rounded-[1.75rem] bg-canvas">
-              <Flat key={style} style={style} tint={changed ? "var(--cobalt)" : undefined} className="h-auto w-[80%]" />
+        <div className="relative mx-auto h-[32rem] w-full max-w-[40rem] [perspective:1600px] sm:h-[40rem]">
+          <div className="absolute inset-x-[2%] bottom-[4%] top-[8%] rounded-[2rem] bg-white p-4 shadow-[0_60px_120px_-50px_rgba(15,16,18,0.55)] [transform:rotateX(8deg)_rotateZ(-4deg)] sm:inset-x-[8%] sm:top-[6%] sm:rounded-[2.5rem] sm:p-8 sm:[transform:rotateX(12deg)_rotateZ(-7deg)]">
+            <div className="eng-grid flex h-full items-center justify-center rounded-[1.5rem] bg-canvas max-sm:pb-14 max-sm:pt-24 sm:rounded-[1.75rem]">
+              <Flat key={style} style={style} tint={changed ? "var(--cobalt)" : undefined} className="h-auto w-[84%] sm:w-[80%]" />
             </div>
           </div>
 
-          <div className="absolute right-0 top-2 w-[15rem] [transform:rotate(-7deg)] sm:w-[17rem]">
+          <div className="absolute -right-1 top-0 w-[11.5rem] [transform:rotate(-5deg)] sm:right-0 sm:top-2 sm:w-[17rem] sm:[transform:rotate(-7deg)]">
             <MeasureCard style={style} />
           </div>
 
-          <div className="absolute bottom-[10%] left-0 w-[15rem] [transform:rotate(-7deg)] sm:w-[16rem]">
+          <div className="absolute -left-1 bottom-[3%] w-[13.5rem] [transform:rotate(-5deg)] sm:bottom-[10%] sm:left-0 sm:w-[16rem] sm:[transform:rotate(-7deg)]">
             <div className="rounded-[1.6rem] border border-white bg-white/75 p-5 shadow-[0_30px_60px_-30px_rgba(15,16,18,0.5)] backdrop-blur-xl">
               <span
                 className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-medium transition-colors duration-500 ${

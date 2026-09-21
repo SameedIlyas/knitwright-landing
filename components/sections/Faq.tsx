@@ -16,10 +16,10 @@ export function Faq() {
   const items = FAQ.groups[group].items;
 
   return (
-    <section id="faq" className="scroll-mt-24 bg-canvas py-28">
+    <section id="faq" className="scroll-mt-24 bg-canvas py-20 sm:py-28">
       <Container>
         <SectionHead n={12} label={FAQ.label} title={<WordsIn text={FAQ.title} className="headline" />}>
-          <div role="tablist" aria-label="FAQ topics" className="mt-2 flex flex-wrap justify-center gap-1 rounded-full bg-shell p-1">
+          <div role="tablist" aria-label="FAQ topics" className="mt-2 grid w-full max-w-[26rem] grid-cols-2 gap-1 rounded-[1.6rem] bg-shell p-1 sm:flex sm:w-auto sm:max-w-none sm:flex-wrap sm:justify-center sm:rounded-full">
             {FAQ.groups.map((g, i) => (
               <button
                 key={g.name}
@@ -30,7 +30,7 @@ export function Faq() {
                   setGroup(i);
                   setOpen(null);
                 }}
-                className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${group === i ? "text-white" : "text-muted hover:text-ink"}`}
+                className={`relative rounded-full px-4 py-2.5 text-center text-sm font-medium transition-colors ${group === i ? "text-white" : "text-muted hover:text-ink"}`}
               >
                 {group === i ? <motion.span layoutId="faq-tab" className="absolute inset-0 rounded-full bg-ink" transition={{ duration: 0.3, ease: EASE }} /> : null}
                 <span className="relative">{g.name}</span>
@@ -39,7 +39,7 @@ export function Faq() {
           </div>
         </SectionHead>
 
-        <ul className="mx-auto mt-12 flex max-w-[52rem] flex-col gap-2.5" role="tabpanel" onPointerLeave={(e) => e.pointerType === "mouse" && setOpen(null)}>
+        <ul className="mx-auto mt-10 flex max-w-[52rem] flex-col gap-2.5 sm:mt-12" role="tabpanel" onPointerLeave={(e) => e.pointerType === "mouse" && setOpen(null)}>
           {items.map((it, i) => (
             <FaqItem
               key={`${group}-${it.q}`}

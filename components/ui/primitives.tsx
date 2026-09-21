@@ -16,7 +16,7 @@ export function SectionLabel({ n, children, dark = false }: { n: number; childre
 }
 
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`mx-auto w-full max-w-[1240px] px-5 sm:px-8 ${className}`}>{children}</div>;
+  return <div className={`mx-auto w-full max-w-[1240px] px-4 sm:px-8 ${className}`}>{children}</div>;
 }
 
 export function ArrowIcon({ className = "size-3.5" }: { className?: string }) {

@@ -86,9 +86,9 @@ const ROW_MEDIA: Record<Row["key"], RowMedia> = {
  */
 export function Benefits() {
   return (
-    <section id="how-it-works" data-nav-theme="dark" className="scroll-mt-24 bg-tile pb-16 pt-28 text-white sm:pt-32">
+    <section id="how-it-works" data-nav-theme="dark" className="scroll-mt-24 bg-tile pb-12 pt-20 text-white sm:pb-16 sm:pt-32">
       <Frame wide>
-        <div className="mb-12 flex flex-col gap-5 px-2 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mb-8 flex flex-col gap-4 px-1 sm:mb-12 sm:gap-5 sm:px-2 lg:flex-row lg:items-end lg:justify-between">
           <Display className="max-w-[16ch] text-[clamp(2.2rem,1.3rem+2.8vw,4rem)] leading-[1.04]">{FLOW.title}</Display>
           <p className="max-w-[30rem] text-[1.05rem] leading-relaxed text-white/65">{FLOW.sub}</p>
         </div>
@@ -112,7 +112,7 @@ function BenefitRow({ row, flip }: { row: Row; flip: boolean }) {
     <article className={`group/row grid gap-3.5 lg:h-[min(46rem,82vh)] ${flip ? "lg:grid-cols-[2.2fr_1fr]" : "lg:grid-cols-[1fr_2.2fr]"}`}>
       <div
         style={{ "--fx": "calc(100% - 4.2rem)", "--fy": "4.2rem" } as CSSProperties}
-        className={`relative isolate flex min-h-[20rem] flex-col justify-between gap-10 overflow-hidden rounded-[2rem] bg-[#3a3b40] p-7 sm:p-8 ${flip ? "lg:order-2" : ""}`}
+        className={`relative isolate flex min-h-[20rem] flex-col justify-between gap-10 overflow-hidden rounded-[2rem] bg-[#3a3b40] p-7 sm:p-8 max-lg:z-10 max-lg:min-h-[32rem] max-lg:justify-end max-lg:gap-4 max-lg:bg-transparent max-lg:p-6 max-lg:[grid-area:1/1] ${flip ? "lg:order-2" : ""}`}
       >
         <span
           aria-hidden="true"
@@ -126,10 +126,10 @@ function BenefitRow({ row, flip }: { row: Row; flip: boolean }) {
             className="thread-ring bg-cobalt text-white transition-colors duration-500 group-hover/row:bg-white group-hover/row:text-ink"
           />
         </div>
-        <p className="relative z-10 max-w-[28rem] text-[1.05rem] leading-relaxed text-white/70 transition-colors duration-500 group-hover/row:text-white">{row.body}</p>
+        <p className="relative z-10 max-w-[28rem] text-[1.05rem] leading-relaxed text-white/70 transition-colors duration-500 group-hover/row:text-white max-lg:text-[1rem] max-lg:text-white/90">{row.body}</p>
       </div>
 
-      <div style={spot} className={`relative min-h-[18rem] overflow-hidden rounded-[2rem] bg-tile-2 sm:min-h-[26rem] ${flip ? "lg:order-1" : ""}`}>
+      <div style={spot} className={`relative min-h-[18rem] overflow-hidden rounded-[2rem] bg-tile-2 sm:min-h-[26rem] max-lg:min-h-0 max-lg:[grid-area:1/1] ${flip ? "lg:order-1" : ""}`}>
         <Image
           src={media.src}
           alt={media.alt}
@@ -147,15 +147,20 @@ function BenefitRow({ row, flip }: { row: Row; flip: boolean }) {
           sizes="(min-width: 1024px) 66vw, 100vw"
           className="object-cover opacity-0 transition-opacity duration-700 [mask-image:radial-gradient(ellipse_30%_44%_at_var(--sx)_var(--sy),#000_50%,transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_30%_44%_at_var(--sx)_var(--sy),#000_50%,transparent_100%)] lg:group-hover/row:opacity-100 lg:group-focus-within/row:opacity-100"
         />
-        {media.callouts.map((c, n) => (
-          <p
-            key={c.text}
-            style={{ transitionDelay: `${n * 90}ms` }}
-            className={`glass-panel absolute max-w-[15rem] rounded-[1.4rem] px-5 py-3.5 text-[0.98rem] font-medium leading-snug text-white transition-[opacity,transform] duration-500 max-lg:bottom-4 max-lg:left-4 max-lg:right-auto max-lg:top-auto max-lg:first-of-type:bottom-16 ${c.at} ${CALLOUT_SHOW}`}
-          >
-            {c.text}
-          </p>
-        ))}
+        {/* Phones: a shaded photo with the two facts stacked in its top corner, the
+            caption below. From lg the wrapper disappears and each fact is placed on the photo. */}
+        <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,16,18,0.5)_0%,rgba(15,16,18,0.05)_28%,rgba(15,16,18,0.55)_52%,rgba(15,16,18,0.94)_100%)] lg:hidden" />
+        <div className="absolute left-3.5 top-3.5 flex max-w-[calc(100%-1.75rem)] flex-col items-start gap-2 lg:contents">
+          {media.callouts.map((c, n) => (
+            <p
+              key={c.text}
+              style={{ transitionDelay: `${n * 90}ms` }}
+              className={`glass-panel absolute max-w-[15rem] rounded-[1.4rem] px-5 py-3.5 text-[0.98rem] font-medium leading-snug text-white transition-[opacity,transform] duration-500 max-lg:static max-lg:rounded-full max-lg:px-4 max-lg:py-2 max-lg:text-sm ${c.at} ${CALLOUT_SHOW}`}
+            >
+              {c.text}
+            </p>
+          ))}
+        </div>
       </div>
     </article>
   );

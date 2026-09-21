@@ -163,7 +163,7 @@ function Mark({ still }: { still: boolean }) {
 export default function MarkScene({ still = false }: { still?: boolean }) {
   return (
     <Canvas
-      dpr={[1, 2]}
+      dpr={[1, 1.5]}
       camera={{ position: [0, 0, 7], fov: 38 }}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       frameloop={still ? "demand" : "always"}

@@ -78,9 +78,13 @@ export function Nav() {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-5">
-          <PillLink href="#early-access" tone={dark ? "outline-light" : "outline"} size="md" className="hidden sm:inline-flex">
-            Join the waitlist
-          </PillLink>
+          {/* PillLink sets its own display, so hide it from a wrapper: the hero and the
+              menu sheet already carry the CTA on phones. */}
+          <div className="hidden sm:block">
+            <PillLink href="#early-access" tone={dark ? "outline-light" : "outline"} size="md">
+              Join the waitlist
+            </PillLink>
+          </div>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}

@@ -33,17 +33,17 @@ export function Showcase() {
   }, [inView, reduce]);
 
   return (
-    <section id="verification" ref={ref} data-nav-theme="dark" className="relative isolate scroll-mt-24 overflow-hidden bg-[#08090c] py-24 sm:py-32">
+    <section id="verification" ref={ref} data-nav-theme="dark" className="relative isolate scroll-mt-24 overflow-hidden bg-[#08090c] py-16 sm:py-32">
       <Backdrop still={Boolean(reduce)} paused={!inView} />
       <Frame>
         <div className="relative">
           <div className="relative grid gap-5 lg:grid-cols-[1.25fr_1fr_0.95fr] lg:gap-6">
-            <div className="glass-panel flex flex-col justify-between gap-6 rounded-[2.5rem] p-7 sm:p-10">
-              <div aria-hidden="true" className="relative aspect-square w-full max-w-[30rem] self-center lg:flex-1">
+            <div className="glass-panel flex flex-col justify-between gap-6 rounded-[2rem] p-6 sm:rounded-[2.5rem] sm:p-10">
+              <div aria-hidden="true" className="relative aspect-square w-full max-w-[13rem] self-center sm:max-w-[30rem] lg:flex-1">
                 {/* A cobalt glow under the mark, so the polished metal has something to sit in. */}
                 <div className="absolute inset-[8%] rounded-full bg-[radial-gradient(circle,rgba(43,70,240,0.5),rgba(43,70,240,0)_68%)]" />
                 <div className="absolute inset-0">
-                  <MarkScene still={Boolean(reduce)} />
+                  <MarkScene still={Boolean(reduce) || !inView} />
                 </div>
               </div>
               <div>
@@ -53,18 +53,18 @@ export function Showcase() {
             </div>
 
             <div className="flex flex-col gap-5 lg:gap-6">
-              <div className="glass-panel rounded-[2.5rem] p-8">
+              <div className="glass-panel rounded-[2rem] p-6 sm:rounded-[2.5rem] sm:p-8">
                 <p className="thread-text text-[clamp(1.6rem,1.2rem+1vw,2.1rem)] font-light leading-tight tracking-[-0.02em]">
                   Minutes, not weeks per style
                 </p>
                 <p className="mt-5 text-[1.05rem] leading-relaxed text-white/85">{VERIFICATION.body}</p>
               </div>
-              <div className="glass-panel flex-1 rounded-[2.5rem] p-3">
+              <div className="glass-panel flex-1 rounded-[2rem] p-2.5 sm:rounded-[2.5rem] sm:p-3">
                 <ReplyCard key={turn} text={ASSISTANT.turns[turn].reply} run={inView && !reduce} />
               </div>
             </div>
 
-            <div className="glass-panel flex items-center justify-center rounded-[2.5rem] p-6 sm:p-8">
+            <div className="glass-panel flex items-center justify-center rounded-[2rem] p-4 sm:rounded-[2.5rem] sm:p-8">
               <Phone active={turn} />
             </div>
           </div>
@@ -102,7 +102,7 @@ function ReplyCard({ text, run }: { text: string; run: boolean }) {
   }, [run, count, words.length]);
 
   return (
-    <div className="flex h-full min-h-[17rem] flex-col rounded-[1.6rem] bg-[linear-gradient(145deg,#2b46f0_0%,#6a5bd8_55%,#c7a6e6_100%)] p-7 text-white">
+    <div className="flex h-full min-h-[14rem] flex-col sm:min-h-[17rem] rounded-[1.6rem] bg-[linear-gradient(145deg,#2b46f0_0%,#6a5bd8_55%,#c7a6e6_100%)] p-7 text-white">
       <p className="flex items-center gap-2.5 border-b border-white/25 pb-4 text-sm font-medium">
         <span className="size-2.5 rounded-full bg-white" />
         Knitwright spec assistant

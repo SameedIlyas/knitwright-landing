@@ -2,25 +2,25 @@ import { PRODUCTION, STUDIO } from "@/lib/content";
 import { KnitLogo } from "@/components/ui/logo";
 import { Display, Frame } from "./ui";
 
-const CARD = "rounded-[2rem] bg-cobalt-wash p-6 sm:p-7";
+const CARD = "rounded-[2rem] bg-cobalt-wash p-3 sm:p-7";
 
 /** Bento of production cards around the studio console, the one screen brands never see. */
 export function Production() {
   return (
-    <section id="production" data-nav-theme="light" className="scroll-mt-24 bg-canvas py-28 sm:py-36">
+    <section id="production" data-nav-theme="light" className="scroll-mt-24 bg-canvas py-20 sm:py-36">
       <Frame>
         <Display className="max-w-[18ch] text-[clamp(2.6rem,1.4rem+4vw,5.4rem)] leading-[1] tracking-[-0.05em] text-ink-2">{PRODUCTION.title}</Display>
         <p className="mt-6 max-w-[44rem] text-[clamp(1.05rem,0.95rem+0.4vw,1.35rem)] font-light leading-relaxed text-ink-2">{PRODUCTION.body}</p>
 
         <div className="mt-14 grid gap-4 lg:grid-cols-12 lg:gap-5">
-          <div className="flex flex-col gap-4 lg:col-span-3 lg:row-span-2">
+          <div className="grid grid-cols-2 gap-3 lg:col-span-3 lg:row-span-2 lg:flex lg:flex-col lg:gap-4">
             {PRODUCTION.escrow.milestones.map((m, i) => (
               <div key={m.label} className={`${CARD} flex-1`}>
-                <div className="rounded-3xl bg-white p-5 shadow-[0_10px_30px_-20px_rgba(15,16,18,0.4)]">
+                <div className="h-full rounded-3xl bg-white p-4 shadow-[0_10px_30px_-20px_rgba(15,16,18,0.4)] sm:p-5">
                   <p className="font-medium">{m.label}</p>
                   <p className="mt-1 text-sm text-muted">Milestone {i + 1} of {PRODUCTION.escrow.milestones.length}</p>
                   <span
-                    className={`mt-5 inline-block rounded-full px-3 py-1 text-xs font-medium ${
+                    className={`mt-4 inline-block rounded-full px-2.5 py-1 text-xs font-medium sm:mt-5 sm:px-3 ${
                       i === 0 ? "bg-ok-wash text-ok" : i === 3 ? "bg-warn-wash text-warn" : "bg-cobalt-wash text-cobalt"
                     }`}
                   >
@@ -97,30 +97,30 @@ function Console() {
   return (
     <div className="rounded-[2rem] bg-[#1b1c20] p-2 shadow-[0_40px_90px_-40px_rgba(15,16,18,0.7)]">
       <div className="overflow-hidden rounded-[1.6rem] bg-white">
-        <div className="flex items-center justify-between border-b border-hairline px-5 py-3.5">
+        <div className="flex items-center justify-between gap-3 border-b border-hairline px-4 py-3.5 sm:px-5">
           <KnitLogo className="h-4 w-auto" />
           <p className="text-xs text-muted">{STUDIO.title}</p>
         </div>
         <div className="grid md:grid-cols-[1fr_15rem]">
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[34rem] text-left text-sm">
+            <table className="w-full text-left text-[0.8rem] sm:min-w-[34rem] sm:text-sm">
               <thead className="text-muted">
                 <tr>
-                  <th className="px-5 py-3 font-medium">Spec</th>
+                  <th className="whitespace-nowrap px-3 py-3 font-medium sm:px-5">Spec</th>
                   <th className="px-3 py-3 font-medium">Style</th>
-                  <th className="px-3 py-3 font-medium">Brand</th>
+                  <th className="hidden px-3 py-3 font-medium sm:table-cell">Brand</th>
                   <th className="px-3 py-3 font-medium">Stage</th>
-                  <th className="px-5 py-3 text-right font-medium">Due in</th>
+                  <th className="whitespace-nowrap px-3 py-3 text-right font-medium sm:px-5">Due in</th>
                 </tr>
               </thead>
               <tbody>
                 {STUDIO.queue.map((q, i) => (
                   <tr key={q.id} className={`border-t border-hairline ${i === 0 ? "bg-cobalt-wash/60" : ""}`}>
-                    <td className="px-5 py-3 font-mono text-xs">{q.id}</td>
+                    <td className="whitespace-nowrap px-3 py-3 font-mono text-[0.7rem] sm:px-5 sm:text-xs">{q.id}</td>
                     <td className="px-3 py-3">{q.style}</td>
-                    <td className="px-3 py-3 text-muted">{q.brand}</td>
-                    <td className="px-3 py-3">{q.stage}</td>
-                    <td className="px-5 py-3 text-right font-mono text-xs tabular-nums">{q.sla}</td>
+                    <td className="hidden px-3 py-3 text-muted sm:table-cell">{q.brand}</td>
+                    <td className="whitespace-nowrap px-3 py-3">{q.stage}</td>
+                    <td className="whitespace-nowrap px-3 py-3 text-right font-mono text-[0.7rem] tabular-nums sm:px-5 sm:text-xs">{q.sla}</td>
                   </tr>
                 ))}
               </tbody>

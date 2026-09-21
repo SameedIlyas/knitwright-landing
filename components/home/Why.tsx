@@ -8,12 +8,12 @@ import { Display, Frame } from "./ui";
  */
 export function Why() {
   return (
-    <section data-nav-theme="light" className="bg-canvas pb-28 sm:pb-32">
+    <section data-nav-theme="light" className="bg-canvas pb-20 sm:pb-32">
       <Frame>
         <Display className="max-w-[20ch] text-[clamp(2.4rem,1.3rem+3.6vw,4.8rem)] leading-[1.02] tracking-[-0.05em] text-ink-2">{WHY.title}</Display>
         <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {WHY.reasons.map((r) => (
-            <HoverFill key={r.title} className="min-h-[17rem] rounded-[2.5rem] bg-white p-8 sm:p-9">
+            <HoverFill key={r.title} className="min-h-[12.5rem] rounded-[2rem] bg-white p-6 sm:min-h-[17rem] sm:rounded-[2.5rem] sm:p-9">
               <h3 className="max-w-[18ch] text-[clamp(1.9rem,1.35rem+1.1vw,2.5rem)] font-light leading-[1.08] tracking-[-0.035em] text-ink-2 transition-colors duration-500 group-hover/fill:text-white">
                 {r.title}
               </h3>

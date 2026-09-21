@@ -32,14 +32,15 @@ const EASE = "ease-[cubic-bezier(0.25,1,0.5,1)] duration-[600ms]";
 /**
  * Row of tall photo panels. Hovering (or focusing) one widens it to ten times
  * its neighbours, lifts it, and swaps its label for the full overlay; the
- * narrowed panels drop their labels. Below lg the panels stack, overlays open.
+ * narrowed panels drop their labels. Below lg the panels stack and pin under
+ * the nav one after another, each new card sliding over the last.
  */
 export function Gallery() {
   const [active, setActive] = useState<Key | null>(null);
   const grow = (keys: Key[]): CSSProperties => ({ flexGrow: active ? (keys.includes(active) ? 10 : 1) : 1 });
 
   return (
-    <section id="gallery" data-nav-theme="light" className="scroll-mt-24 bg-canvas pb-24 pt-28 sm:pt-32">
+    <section id="gallery" data-nav-theme="light" className="scroll-mt-24 bg-canvas pb-16 pt-20 sm:pb-24 sm:pt-32">
       <Frame wide>
         <div className="mx-auto flex max-w-[64rem] flex-col items-center text-center">
           <Display className="text-[clamp(2rem,1.2rem+2.4vw,3.2rem)] leading-[1.1] text-ink-2">{GALLERY.title}</Display>
@@ -47,7 +48,7 @@ export function Gallery() {
         </div>
 
         <div
-          className="mt-14 flex flex-col gap-4 lg:h-[600px] lg:flex-row lg:gap-6"
+          className="mt-10 flex flex-col gap-4 sm:mt-14 lg:h-[600px] lg:flex-row lg:gap-6"
           onPointerLeave={() => setActive(null)}
           onBlur={(e) => {
             if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setActive(null);
@@ -55,7 +56,7 @@ export function Gallery() {
         >
           {COLUMNS.map((col) =>
             Array.isArray(col) ? (
-              <div key={col.join("-")} className={`flex min-w-0 flex-col gap-4 transition-[flex-grow] lg:basis-0 lg:gap-6 ${EASE}`} style={grow(col)}>
+              <div key={col.join("-")} className={`flex min-w-0 flex-col gap-4 transition-[flex-grow] max-lg:contents lg:basis-0 lg:gap-6 ${EASE}`} style={grow(col)}>
                 {col.map((k) => (
                   <PanelCard
                     key={k}
@@ -104,7 +105,7 @@ function PanelCard({
       onPointerEnter={onActivate}
       onFocus={onActivate}
       style={style}
-      className={`relative isolate block min-h-[22rem] min-w-0 overflow-hidden rounded-[2.5rem] bg-tile transition-[flex-grow,transform] lg:min-h-0 lg:basis-0 ${EASE} ${
+      className={`relative isolate block max-lg:sticky max-lg:top-24 max-lg:shadow-[0_24px_40px_-26px_rgba(15,16,18,0.55)] min-h-[19rem] min-w-0 overflow-hidden rounded-[2rem] sm:min-h-[22rem] sm:rounded-[2.5rem] bg-tile transition-[flex-grow,transform] lg:min-h-0 lg:basis-0 ${EASE} ${
         open ? "lg:-translate-y-2" : ""
       }`}
     >
@@ -135,7 +136,7 @@ function PanelCard({
           open ? "lg:translate-y-0 lg:opacity-100" : "lg:pointer-events-none lg:translate-y-5 lg:opacity-0"
         }`}
       >
-        <div className="glass-panel group/glass flex items-end justify-between gap-6 rounded-[1.9rem] p-6 transition-[background-color,border-color] duration-500 hover:border-white/45 hover:bg-cobalt/75 sm:p-7">
+        <div className="glass-panel group/glass flex items-end justify-between gap-4 rounded-[1.5rem] p-5 sm:rounded-[1.9rem] sm:gap-6 transition-[background-color,border-color] duration-500 hover:border-white/45 hover:bg-cobalt/75 sm:p-7">
           <div className="min-w-0">
             <h3 className="text-[2rem] font-light leading-none tracking-[-0.03em] transition-colors duration-500 group-hover/glass:text-[#fff1c2]">
               {panel.title}

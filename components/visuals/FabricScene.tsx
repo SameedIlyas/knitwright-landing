@@ -129,7 +129,7 @@ function Fabric({ still }: { still: boolean }) {
 export default function FabricScene({ still = false, paused = false }: { still?: boolean; paused?: boolean }) {
   return (
     <Canvas
-      dpr={[1, 1.6]}
+      dpr={[1, 1.35]}
       camera={{ position: [0, 1.5, 9], fov: 40, near: 0.1, far: 60 }}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       frameloop={still || paused ? "demand" : "always"}
