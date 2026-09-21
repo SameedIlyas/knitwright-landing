@@ -27,7 +27,7 @@ export function Hero() {
           <span className="morph-reveal thread-text pb-[0.08em]">{HOME_HERO.headline[1]}</span>
         </Display>
         <p className="mt-7 max-w-[36rem] text-[clamp(1rem,0.9rem+0.35vw,1.2rem)] leading-relaxed text-white/85">{HOME_HERO.sub}</p>
-        <PillLink href="#early-access" tone="white" className="mt-10">
+        <PillLink href="#early-access" tone="outline-light" className="mt-10">
           Join the waitlist
         </PillLink>
       </div>

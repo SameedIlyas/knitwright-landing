@@ -65,19 +65,6 @@ function BadgeCard({ tone }: { tone: "ok" | "warn" }) {
           <p className="mt-1 font-mono text-sm text-ink-2">{data.line}</p>
         </div>
       </div>
-      <ul className="flex flex-wrap gap-1.5">
-        {VERIFICATION.checks.map((c, i) => (
-          <li
-            key={c}
-            className={`rounded-full px-3 py-1 text-xs font-medium ${
-              ok ? "bg-surface/70 text-ok" : i === 1 ? "bg-warn text-white" : "bg-surface/70 text-warn"
-            }`}
-          >
-            {c}
-            {!ok && i === 1 ? " · changed" : ""}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }

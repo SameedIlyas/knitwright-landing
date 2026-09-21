@@ -55,7 +55,7 @@ export function WaitlistForm() {
     errors[k] ? { "aria-invalid": true as const, "aria-describedby": id(`${k}-err`) } : {};
   const input =
     "w-full rounded-2xl border border-hairline bg-surface px-4 py-3.5 text-[0.95rem] text-ink outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-faint focus:border-ink focus:shadow-[0_0_0_4px_rgba(15,16,18,0.06)] aria-[invalid=true]:border-[#c2362b]";
-  const label = "eyebrow mb-2 block text-muted";
+  const label = "mb-2 block text-sm font-medium text-ink-2";
   const select = "select-arrow pr-10";
 
   return (
@@ -119,7 +119,7 @@ export function WaitlistForm() {
             </div>
             <div>
               <label htmlFor={id("details")} className={label}>
-                What are you trying to get made? <span className="normal-case tracking-normal">(optional)</span>
+                What are you trying to get made? <span className="font-normal text-muted">(optional)</span>
               </label>
               <textarea id={id("details")} name="details" rows={2} className={`${input} resize-none`} {...invalid("details")} />
               <FieldError id={id("details-err")} msg={errors.details} />
@@ -141,7 +141,7 @@ export function WaitlistForm() {
                   <ArrowIcon />
                 </span>
               </button>
-              <p className="eyebrow text-muted">{HERO.microcopy}</p>
+              <p className="text-sm text-muted">{HERO.microcopy}</p>
             </div>
             {status === "error" && message ? <p className="text-sm text-[#c2362b]">{message}</p> : null}
           </motion.form>

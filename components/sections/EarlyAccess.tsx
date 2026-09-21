@@ -29,18 +29,6 @@ export function EarlyAccess() {
           <Reveal delay={0.1} className="bezel !rounded-[2.5rem]">
             <div className="bezel-inner h-full !rounded-[2.1rem] p-6 sm:p-9">
               <WaitlistForm />
-              <div className="mt-8 rounded-2xl bg-canvas p-5">
-                <p className="eyebrow text-ink">{EARLY_ACCESS.ready.title}</p>
-                <ul className="mt-3 flex flex-col gap-1.5 text-sm text-muted">
-                  {EARLY_ACCESS.ready.items.map((r) => (
-                    <li key={r} className="flex gap-2">
-                      <span aria-hidden="true">·</span>
-                      {r}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-3 text-sm font-medium text-ink">{EARLY_ACCESS.ready.note}</p>
-              </div>
             </div>
           </Reveal>
         </div>

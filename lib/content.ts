@@ -192,7 +192,6 @@ export const VERIFICATION = {
   caption:
     "The badge degrades the moment the spec moves away from what was signed. Trust is a fact about a specific version, not a sticker.",
   nameNote: "Reviewer name is illustrative.",
-  checks: ["Seam allowances", "Grading logic", "Buildability", "Tolerances", "Materials"],
 } as const;
 
 export const PRODUCTION = {
@@ -325,16 +324,7 @@ export const EARLY_ACCESS = {
     { step: "Spec, signed", happens: "Draft spec, then a technician verifies it.", you: "Review it, comment, approve." },
     { step: "Sample, then bulk", happens: "We sample, measure, quote and produce.", you: "Approve the sample, pick a quantity, pay the deposit." },
     { step: "Delivered", happens: "QC, release, ship.", you: "Release the balance when QC passes." },
-  ],
-  ready: {
-    title: "What to have ready",
-    items: [
-      "A reference: photo, sketch, a garment you like, or a moodboard.",
-      "The category (e.g. training tee, club polo) and a rough quantity.",
-      "Optional: your logo, brand colours, target price, and a deadline.",
-    ],
-    note: "You don't need a tech pack, a factory, or any production experience. That's our job.",
-  },
+  ]
 } as const;
 
 export const CATEGORIES = ["Performance", "Activewear", "Team kit & uniforms", "Streetwear", "Other"] as const;

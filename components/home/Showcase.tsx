@@ -7,7 +7,7 @@ import { ASSISTANT, VERIFICATION } from "@/lib/content";
 import { KnitMark } from "@/components/ui/logo";
 import { Display, Frame } from "./ui";
 
-const ShirtScene = dynamic(() => import("@/components/visuals/ShirtScene"), { ssr: false });
+const MarkScene = dynamic(() => import("@/components/visuals/MarkScene"), { ssr: false });
 const FabricScene = dynamic(() => import("@/components/visuals/FabricScene"), { ssr: false });
 
 /** One turn every four seconds; the reply types a word every 80ms. */
@@ -17,7 +17,7 @@ const WORD_MS = 80;
 /**
  * Dark stage for verification. Rendered knit fabric sits low behind three glass
  * panels: the panels blur what is under them and the fabric stays sharp around
- * the edges. Inside are a turning sportswear tee, the verification copy with an
+ * the edges. Inside are the Knitwright mark in polished metal, the verification copy with an
  * assistant reply that types out, and a phone whose chips light up in step.
  */
 export function Showcase() {
@@ -40,7 +40,11 @@ export function Showcase() {
           <div className="relative grid gap-5 lg:grid-cols-[1.25fr_1fr_0.95fr] lg:gap-6">
             <div className="glass-panel flex flex-col justify-between gap-6 rounded-[2.5rem] p-7 sm:p-10">
               <div aria-hidden="true" className="relative aspect-square w-full max-w-[30rem] self-center lg:flex-1">
-                <ShirtScene still={Boolean(reduce)} />
+                {/* A cobalt glow under the mark, so the polished metal has something to sit in. */}
+                <div className="absolute inset-[8%] rounded-full bg-[radial-gradient(circle,rgba(43,70,240,0.5),rgba(43,70,240,0)_68%)]" />
+                <div className="absolute inset-0">
+                  <MarkScene still={Boolean(reduce)} />
+                </div>
               </div>
               <div>
                 <Display className="text-[clamp(2.2rem,1.3rem+2.4vw,3.4rem)] leading-[1.05] text-white">{VERIFICATION.title}</Display>
@@ -54,13 +58,6 @@ export function Showcase() {
                   Five checks before anything is cut
                 </p>
                 <p className="mt-5 text-[1.05rem] leading-relaxed text-white/85">{VERIFICATION.body}</p>
-                <ul className="mt-6 flex flex-wrap gap-2">
-                  {VERIFICATION.checks.map((c) => (
-                    <li key={c} className="rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-sm text-white/90">
-                      {c}
-                    </li>
-                  ))}
-                </ul>
               </div>
               <div className="glass-panel flex-1 rounded-[2.5rem] p-3">
                 <ReplyCard key={turn} text={ASSISTANT.turns[turn].reply} run={inView && !reduce} />
