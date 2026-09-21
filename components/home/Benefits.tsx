@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from "next/image";
+import type { CSSProperties } from "react";
 import { BENEFITS, FLOW } from "@/lib/content";
 import { ArrowDisc, Display, Frame } from "./ui";
 import spec from "@/public/images/r-spec.jpg";
@@ -9,15 +10,80 @@ import reorder from "@/public/images/r-reorder.jpg";
 
 type Row = (typeof BENEFITS.rows)[number];
 
-const ROW_MEDIA: Record<Row["key"], { src: StaticImageData; alt: string; href: string; label: string }> = {
-  spec: { src: spec, alt: "Cutting fabric along a pattern with shears", href: "#spec-live", label: "See the spec update live" },
-  signoff: { src: signoff, alt: "A machinist stitching a garment", href: "#verification", label: "How verification works" },
-  make: { src: make, alt: "A production line of machinists at work", href: "#production", label: "How production works" },
-  escrow: { src: escrow, alt: "Cartons taped and stacked for shipping", href: "#production", label: "How escrow works" },
-  reorder: { src: reorder, alt: "Workers folding finished garments", href: "#early-access", label: "Request early access" },
+interface RowMedia {
+  src: StaticImageData;
+  alt: string;
+  href: string;
+  label: string;
+  /** Where the subject sits in the photo; the spotlight stays lit around it. */
+  spot: { x: string; y: string };
+  /** Two short facts that slide in over the dimmed photo, each with its position. */
+  callouts: [{ text: string; at: string }, { text: string; at: string }];
+}
+
+const ROW_MEDIA: Record<Row["key"], RowMedia> = {
+  spec: {
+    src: spec,
+    alt: "Cutting fabric along a pattern with shears",
+    href: "#spec-live",
+    label: "See the spec update live",
+    spot: { x: "45%", y: "46%" },
+    callouts: [
+      { text: "Annotated technical flats", at: "left-[6%] top-[12%]" },
+      { text: "Graded size run with tolerances", at: "right-[6%] bottom-[12%]" },
+    ],
+  },
+  signoff: {
+    src: signoff,
+    alt: "A machinist stitching a garment",
+    href: "#verification",
+    label: "How verification works",
+    spot: { x: "52%", y: "60%" },
+    callouts: [
+      { text: "Signed by name, with a date", at: "left-[6%] top-[12%]" },
+      { text: "Seams, grading and buildability checked", at: "right-[6%] top-[14%]" },
+    ],
+  },
+  make: {
+    src: make,
+    alt: "A production line of machinists at work",
+    href: "#production",
+    label: "How production works",
+    spot: { x: "50%", y: "62%" },
+    callouts: [
+      { text: "One quality tier", at: "left-[6%] top-[12%]" },
+      { text: "Price and lead time up front", at: "right-[6%] bottom-[12%]" },
+    ],
+  },
+  escrow: {
+    src: escrow,
+    alt: "Cartons taped and stacked for shipping",
+    href: "#production",
+    label: "How escrow works",
+    spot: { x: "56%", y: "62%" },
+    callouts: [
+      { text: "Balance held until QC passes", at: "left-[6%] top-[12%]" },
+      { text: "You release it", at: "right-[6%] bottom-[12%]" },
+    ],
+  },
+  reorder: {
+    src: reorder,
+    alt: "Workers folding finished garments",
+    href: "#early-access",
+    label: "Request early access",
+    spot: { x: "50%", y: "50%" },
+    callouts: [
+      { text: "Same spec, same line", at: "left-[6%] top-[12%]" },
+      { text: "Same price band", at: "right-[6%] bottom-[12%]" },
+    ],
+  },
 };
 
-/** Alternating rows: a text card with an arrow disc beside a large photograph. */
+/**
+ * Alternating rows of a text card beside a large photograph. Hovering a row
+ * floods the text card with cobalt from its arrow, dims the photo down to a
+ * spotlight around its subject, and slides two glass callouts into view.
+ */
 export function Benefits() {
   return (
     <section id="how-it-works" data-nav-theme="dark" className="scroll-mt-24 bg-tile pb-16 pt-28 text-white sm:pt-32">
@@ -36,19 +102,60 @@ export function Benefits() {
   );
 }
 
+/** Callouts are always visible when rows stack, and appear on hover or focus at lg. */
+const CALLOUT_SHOW = "lg:translate-y-3 lg:opacity-0 lg:group-hover/row:translate-y-0 lg:group-hover/row:opacity-100 lg:group-focus-within/row:translate-y-0 lg:group-focus-within/row:opacity-100";
+
 function BenefitRow({ row, flip }: { row: Row; flip: boolean }) {
   const media = ROW_MEDIA[row.key];
+  const spot = { "--sx": media.spot.x, "--sy": media.spot.y } as CSSProperties;
   return (
-    <article className={`grid gap-3.5 lg:h-[min(46rem,82vh)] ${flip ? "lg:grid-cols-[2.2fr_1fr]" : "lg:grid-cols-[1fr_2.2fr]"}`}>
-      <div className={`flex min-h-[20rem] flex-col justify-between gap-10 rounded-[2rem] bg-[#3a3b40] p-7 sm:p-8 ${flip ? "lg:order-2" : ""}`}>
-        <div className="flex items-start justify-between gap-6">
+    <article className={`group/row grid gap-3.5 lg:h-[min(46rem,82vh)] ${flip ? "lg:grid-cols-[2.2fr_1fr]" : "lg:grid-cols-[1fr_2.2fr]"}`}>
+      <div
+        style={{ "--fx": "calc(100% - 4.2rem)", "--fy": "4.2rem" } as CSSProperties}
+        className={`relative isolate flex min-h-[20rem] flex-col justify-between gap-10 overflow-hidden rounded-[2rem] bg-[#3a3b40] p-7 sm:p-8 ${flip ? "lg:order-2" : ""}`}
+      >
+        <span
+          aria-hidden="true"
+          className="fill-layer bg-cobalt lg:group-hover/row:[clip-path:circle(160%_at_var(--fx)_var(--fy))] lg:group-focus-within/row:[clip-path:circle(160%_at_var(--fx)_var(--fy))]"
+        />
+        <div className="relative z-10 flex items-start justify-between gap-6">
           <h3 className="text-[clamp(2.2rem,1.4rem+2.4vw,3.6rem)] font-light leading-[1.08] tracking-[-0.035em]">{row.title}</h3>
-          <ArrowDisc href={media.href} label={media.label} className="thread-ring bg-cobalt text-white" />
+          <ArrowDisc
+            href={media.href}
+            label={media.label}
+            className="thread-ring bg-cobalt text-white transition-colors duration-500 group-hover/row:bg-white group-hover/row:text-ink"
+          />
         </div>
-        <p className="max-w-[28rem] text-[1.05rem] leading-relaxed text-white/70">{row.body}</p>
+        <p className="relative z-10 max-w-[28rem] text-[1.05rem] leading-relaxed text-white/70 transition-colors duration-500 group-hover/row:text-white">{row.body}</p>
       </div>
-      <div className={`relative min-h-[18rem] overflow-hidden rounded-[2rem] sm:min-h-[26rem] ${flip ? "lg:order-1" : ""}`}>
-        <Image src={media.src} alt={media.alt} fill sizes="(min-width: 1024px) 66vw, 100vw" placeholder="blur" className="object-cover" />
+
+      <div style={spot} className={`relative min-h-[18rem] overflow-hidden rounded-[2rem] bg-tile-2 sm:min-h-[26rem] ${flip ? "lg:order-1" : ""}`}>
+        <Image
+          src={media.src}
+          alt={media.alt}
+          fill
+          sizes="(min-width: 1024px) 66vw, 100vw"
+          placeholder="blur"
+          className="object-cover transition-[filter] duration-700 lg:group-hover/row:brightness-[0.32] lg:group-focus-within/row:brightness-[0.32]"
+        />
+        {/* The same photograph again, kept bright inside a soft ellipse around its subject. */}
+        <Image
+          src={media.src}
+          alt=""
+          aria-hidden="true"
+          fill
+          sizes="(min-width: 1024px) 66vw, 100vw"
+          className="object-cover opacity-0 transition-opacity duration-700 [mask-image:radial-gradient(ellipse_30%_44%_at_var(--sx)_var(--sy),#000_50%,transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_30%_44%_at_var(--sx)_var(--sy),#000_50%,transparent_100%)] lg:group-hover/row:opacity-100 lg:group-focus-within/row:opacity-100"
+        />
+        {media.callouts.map((c, n) => (
+          <p
+            key={c.text}
+            style={{ transitionDelay: `${n * 90}ms` }}
+            className={`glass-panel absolute max-w-[15rem] rounded-[1.4rem] px-5 py-3.5 text-[0.98rem] font-medium leading-snug text-white transition-[opacity,transform] duration-500 max-lg:bottom-4 max-lg:left-4 max-lg:right-auto max-lg:top-auto max-lg:first-of-type:bottom-16 ${c.at} ${CALLOUT_SHOW}`}
+          >
+            {c.text}
+          </p>
+        ))}
       </div>
     </article>
   );

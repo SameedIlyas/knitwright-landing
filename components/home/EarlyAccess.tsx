@@ -21,7 +21,9 @@ export function EarlyAccess() {
         </Frame>
       </div>
 
-      <div data-nav-theme="light">
+      {/* Positioned and lifted: the photo band above is `relative`, so without a
+          z-index the card that overlaps it would paint underneath. */}
+      <div data-nav-theme="light" className="relative z-10">
         <Frame className="-mt-24 flex flex-col items-center">
           <div id="waitlist-form" className="w-full max-w-[52rem] scroll-mt-28 rounded-[2.5rem] bg-white p-6 shadow-[0_40px_90px_-50px_rgba(15,16,18,0.45)] sm:p-10">
             <WaitlistForm />

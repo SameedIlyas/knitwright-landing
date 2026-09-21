@@ -7,16 +7,18 @@ import { ASSISTANT, VERIFICATION } from "@/lib/content";
 import { KnitMark } from "@/components/ui/logo";
 import { Display, Frame } from "./ui";
 
-const KnotScene = dynamic(() => import("@/components/visuals/KnotScene"), { ssr: false });
+const ShirtScene = dynamic(() => import("@/components/visuals/ShirtScene"), { ssr: false });
+const FabricScene = dynamic(() => import("@/components/visuals/FabricScene"), { ssr: false });
 
 /** One turn every four seconds; the reply types a word every 80ms. */
 const TURN_MS = 4000;
 const WORD_MS = 80;
 
 /**
- * Dark stage for verification: the knit knot as the object, a signed-spec card,
- * an assistant reply that types out, and a phone whose suggestion chips light
- * up in step with the reply being typed.
+ * Dark stage for verification. Rendered knit fabric sits low behind three glass
+ * panels: the panels blur what is under them and the fabric stays sharp around
+ * the edges. Inside are a turning sportswear tee, the verification copy with an
+ * assistant reply that types out, and a phone whose chips light up in step.
  */
 export function Showcase() {
   const ref = useRef<HTMLElement>(null);
@@ -31,47 +33,63 @@ export function Showcase() {
   }, [inView, reduce]);
 
   return (
-    <section id="verification" ref={ref} data-nav-theme="dark" className="relative isolate scroll-mt-24 overflow-hidden bg-black py-10 sm:py-16">
-      {/* The iridescent thread sweeping under the panel. */}
-      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-[60%]">
-        <div className="absolute -left-[10%] bottom-[-30%] h-[90%] w-[70%] rounded-[50%] bg-[#2b46f0] opacity-70 blur-[90px]" />
-        <div className="absolute -right-[5%] bottom-[-20%] h-[80%] w-[55%] rounded-[50%] bg-[#ffd3e6] opacity-40 blur-[110px]" />
-        <div className="absolute bottom-[-35%] left-[30%] h-[70%] w-[45%] rounded-[50%] bg-[#9fb0ff] opacity-45 blur-[100px]" />
-      </div>
-
+    <section id="verification" ref={ref} data-nav-theme="dark" className="relative isolate scroll-mt-24 overflow-hidden bg-[#08090c] py-24 sm:py-32">
+      <Backdrop still={Boolean(reduce)} paused={!inView} />
       <Frame>
-        <div className="grid gap-5 rounded-[2.5rem] border border-white/10 bg-black/85 p-5 sm:p-10 lg:grid-cols-[1.25fr_1fr_0.95fr] lg:gap-6 lg:p-14">
-          <div className="flex flex-col justify-between gap-6">
-            <div aria-hidden="true" className="relative aspect-square w-full max-w-[30rem] self-center lg:flex-1">
-              <div className="absolute inset-[18%] rounded-full bg-[image:var(--thread)] opacity-30 blur-[70px]" />
-              <div className="absolute inset-0">
-                <KnotScene still={Boolean(reduce)} color="#4a4d5c" />
+        <div className="relative">
+          <div className="relative grid gap-5 lg:grid-cols-[1.25fr_1fr_0.95fr] lg:gap-6">
+            <div className="glass-panel flex flex-col justify-between gap-6 rounded-[2.5rem] p-7 sm:p-10">
+              <div aria-hidden="true" className="relative aspect-square w-full max-w-[30rem] self-center lg:flex-1">
+                <ShirtScene still={Boolean(reduce)} />
+              </div>
+              <div>
+                <Display className="text-[clamp(2.2rem,1.3rem+2.4vw,3.4rem)] leading-[1.05] text-white">{VERIFICATION.title}</Display>
+                <p className="mt-4 max-w-[30rem] text-[1.08rem] leading-relaxed text-white/75">{VERIFICATION.caption}</p>
               </div>
             </div>
-            <div>
-              <Display className="text-[clamp(2.2rem,1.3rem+2.4vw,3.4rem)] leading-[1.05] text-white">{VERIFICATION.title}</Display>
-              <p className="mt-4 max-w-[30rem] text-[1.08rem] leading-relaxed text-white/70">{VERIFICATION.caption}</p>
-            </div>
-          </div>
 
-          <div className="flex flex-col gap-5">
-            <div className="rounded-[2rem] border border-white/12 p-8">
-              <p className="thread-text text-[clamp(1.6rem,1.2rem+1vw,2.1rem)] font-light leading-tight tracking-[-0.02em]">
-                Five checks before anything is cut
-              </p>
-              <p className="mt-5 text-[1.05rem] leading-relaxed text-white/85">{VERIFICATION.body}</p>
+            <div className="flex flex-col gap-5 lg:gap-6">
+              <div className="glass-panel rounded-[2.5rem] p-8">
+                <p className="thread-text text-[clamp(1.6rem,1.2rem+1vw,2.1rem)] font-light leading-tight tracking-[-0.02em]">
+                  Five checks before anything is cut
+                </p>
+                <p className="mt-5 text-[1.05rem] leading-relaxed text-white/85">{VERIFICATION.body}</p>
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {VERIFICATION.checks.map((c) => (
+                    <li key={c} className="rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-sm text-white/90">
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="glass-panel flex-1 rounded-[2.5rem] p-3">
+                <ReplyCard key={turn} text={ASSISTANT.turns[turn].reply} run={inView && !reduce} />
+              </div>
             </div>
-            <div className="flex-1 rounded-[2rem] border border-white/12 p-3">
-              <ReplyCard key={turn} text={ASSISTANT.turns[turn].reply} run={inView && !reduce} />
-            </div>
-          </div>
 
-          <div className="flex items-center justify-center">
-            <Phone active={turn} />
+            <div className="glass-panel flex items-center justify-center rounded-[2.5rem] p-6 sm:p-8">
+              <Phone active={turn} />
+            </div>
           </div>
         </div>
       </Frame>
     </section>
+  );
+}
+
+/**
+ * The rendered fabric along the lower part of the stage. It bleeds past the
+ * panels at the sides and underneath, and fades out above so the top of the
+ * section stays clean.
+ */
+function Backdrop({ still, paused }: { still: boolean; paused: boolean }) {
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-x-0 bottom-0 h-[78%] [mask-image:linear-gradient(180deg,transparent,#000_38%)] [-webkit-mask-image:linear-gradient(180deg,transparent,#000_38%)]"
+    >
+      <FabricScene still={still} paused={paused} />
+    </div>
   );
 }
 

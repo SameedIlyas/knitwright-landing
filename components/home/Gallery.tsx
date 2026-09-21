@@ -116,7 +116,7 @@ function PanelCard({
         placeholder="blur"
         className={`-z-10 object-cover transition-transform ${EASE} ${open ? "scale-105" : "scale-100"}`}
       />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/15 to-black/5" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-black/55 via-black/10 to-black/5" />
 
       {/* Resting label: visible until any panel opens. */}
       <p
@@ -128,16 +128,19 @@ function PanelCard({
         {panel.title}
       </p>
 
-      {/* Full overlay: title, points and arrow. Always shown when stacked. */}
+      {/* Glass card: title, points and arrow. Always shown when stacked. Hovering
+          the card itself tints it cobalt and shifts the text colour. */}
       <div
-        className={`absolute inset-x-0 bottom-0 p-7 text-white transition-[opacity,transform] sm:p-8 ${EASE} ${
+        className={`absolute inset-x-0 bottom-0 p-4 text-white transition-[opacity,transform] sm:p-5 ${EASE} ${
           open ? "lg:translate-y-0 lg:opacity-100" : "lg:pointer-events-none lg:translate-y-5 lg:opacity-0"
         }`}
       >
-        <div className="flex items-end justify-between gap-6">
+        <div className="glass-panel group/glass flex items-end justify-between gap-6 rounded-[1.9rem] p-6 transition-[background-color,border-color] duration-500 hover:border-white/45 hover:bg-cobalt/75 sm:p-7">
           <div className="min-w-0">
-            <h3 className="text-[2rem] font-light leading-none tracking-[-0.03em]">{panel.title}</h3>
-            <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1.5 text-[0.98rem] text-white/85">
+            <h3 className="text-[2rem] font-light leading-none tracking-[-0.03em] transition-colors duration-500 group-hover/glass:text-[#fff1c2]">
+              {panel.title}
+            </h3>
+            <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1.5 text-[0.98rem] text-white/80 transition-colors duration-500 group-hover/glass:text-white">
               {panel.points.map((p) => (
                 <li key={p} className="whitespace-nowrap">
                   {p}
@@ -145,7 +148,7 @@ function PanelCard({
               ))}
             </ul>
           </div>
-          <span className="grid size-12 shrink-0 place-items-center rounded-full bg-white text-ink">
+          <span className="grid size-12 shrink-0 place-items-center rounded-full bg-white text-ink transition-[background-color,transform] duration-500 group-hover/glass:rotate-45 group-hover/glass:bg-[#fff1c2]">
             <ArrowUpRight className="size-5" />
           </span>
         </div>

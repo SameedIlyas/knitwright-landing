@@ -10,7 +10,9 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function Faq() {
   const [group, setGroup] = useState(0);
-  const [open, setOpen] = useState<number | null>(0);
+  // Every question starts closed. A mouse opens one by hovering it and closes it
+  // when the pointer leaves the list; touch and keyboard toggle with a tap or Enter.
+  const [open, setOpen] = useState<number | null>(null);
   const items = FAQ.groups[group].items;
 
   return (
@@ -26,7 +28,7 @@ export function Faq() {
                 aria-selected={group === i}
                 onClick={() => {
                   setGroup(i);
-                  setOpen(0);
+                  setOpen(null);
                 }}
                 className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${group === i ? "text-white" : "text-muted hover:text-ink"}`}
               >
@@ -37,7 +39,7 @@ export function Faq() {
           </div>
         </SectionHead>
 
-        <ul className="mx-auto mt-12 flex max-w-[52rem] flex-col gap-2.5" role="tabpanel">
+        <ul className="mx-auto mt-12 flex max-w-[52rem] flex-col gap-2.5" role="tabpanel" onPointerLeave={(e) => e.pointerType === "mouse" && setOpen(null)}>
           {items.map((it, i) => (
             <FaqItem
               key={`${group}-${it.q}`}
@@ -46,6 +48,7 @@ export function Faq() {
               a={it.a}
               placeholder={"placeholder" in it && Boolean(it.placeholder)}
               open={open === i}
+              onHover={() => setOpen(i)}
               onToggle={() => setOpen(open === i ? null : i)}
             />
           ))}
@@ -61,6 +64,7 @@ function FaqItem({
   a,
   placeholder,
   open,
+  onHover,
   onToggle,
 }: {
   n: number;
@@ -68,18 +72,27 @@ function FaqItem({
   a: string;
   placeholder: boolean;
   open: boolean;
+  onHover: () => void;
   onToggle: () => void;
 }) {
   const id = useId();
   return (
-    <li className={`rounded-[1.6rem] transition-colors duration-300 ${open ? "bg-surface shadow-[0_1px_3px_rgba(15,16,18,0.06)]" : "bg-shell/70 hover:bg-shell"}`}>
+    <li
+      onPointerEnter={(e) => e.pointerType === "mouse" && onHover()}
+      className={`rounded-[1.6rem] transition-colors duration-300 ${open ? "bg-surface shadow-[0_1px_3px_rgba(15,16,18,0.06)]" : "bg-shell/70 hover:bg-shell"}`}
+    >
       <h3>
         <button
           type="button"
           aria-expanded={open}
           aria-controls={`${id}-panel`}
           id={`${id}-btn`}
-          onClick={onToggle}
+          onClick={(e) => {
+            // A mouse click lands on an item its hover already opened, so leave it
+            // open; keyboard (detail 0) and touch taps still toggle.
+            const mouse = e.detail > 0 && (e.nativeEvent as PointerEvent).pointerType === "mouse";
+            if (!mouse) onToggle();
+          }}
           className="flex w-full items-center gap-4 px-5 py-5 text-left sm:px-6"
         >
           <span className={`grid size-8 shrink-0 place-items-center rounded-lg font-mono text-xs transition-colors ${open ? "bg-ink text-white" : "bg-surface text-ink"}`}>{n}</span>
