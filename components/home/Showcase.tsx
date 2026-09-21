@@ -55,7 +55,7 @@ export function Showcase() {
             <div className="flex flex-col gap-5 lg:gap-6">
               <div className="glass-panel rounded-[2.5rem] p-8">
                 <p className="thread-text text-[clamp(1.6rem,1.2rem+1vw,2.1rem)] font-light leading-tight tracking-[-0.02em]">
-                  Five checks before anything is cut
+                  Minutes, not weeks per style
                 </p>
                 <p className="mt-5 text-[1.05rem] leading-relaxed text-white/85">{VERIFICATION.body}</p>
               </div>

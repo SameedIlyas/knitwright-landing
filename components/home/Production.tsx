@@ -109,7 +109,7 @@ function Console() {
                   <th className="px-5 py-3 font-medium">Spec</th>
                   <th className="px-3 py-3 font-medium">Style</th>
                   <th className="px-3 py-3 font-medium">Brand</th>
-                  <th className="px-3 py-3 font-medium">Reviewer</th>
+                  <th className="px-3 py-3 font-medium">Stage</th>
                   <th className="px-5 py-3 text-right font-medium">Due in</th>
                 </tr>
               </thead>
@@ -119,7 +119,7 @@ function Console() {
                     <td className="px-5 py-3 font-mono text-xs">{q.id}</td>
                     <td className="px-3 py-3">{q.style}</td>
                     <td className="px-3 py-3 text-muted">{q.brand}</td>
-                    <td className="px-3 py-3">{q.reviewer}</td>
+                    <td className="px-3 py-3">{q.stage}</td>
                     <td className="px-5 py-3 text-right font-mono text-xs tabular-nums">{q.sla}</td>
                   </tr>
                 ))}

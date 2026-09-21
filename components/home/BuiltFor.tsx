@@ -12,8 +12,8 @@ import teamkit from "@/public/images/s-teamkit.jpg";
 import creator from "@/public/images/s-creator.jpg";
 
 const SEGMENT_MEDIA: { short: string; src: StaticImageData; alt: string }[] = [
-  { short: "Performance", src: performance, alt: "A runner in black training kit on a city street" },
-  { short: "Activewear", src: activewear, alt: "A woman running on a trail in a light tank top" },
+  { short: "New brands", src: performance, alt: "A runner in black training kit on a city street" },
+  { short: "Designers", src: activewear, alt: "A woman running on a trail in a light tank top" },
   { short: "Team kit", src: teamkit, alt: "A football team walking out in matching green kit" },
   { short: "Creator brands", src: creator, alt: "A man in a black crew-neck tee" },
 ];
@@ -54,7 +54,7 @@ export function BuiltFor() {
     <section data-nav-theme="light" className="bg-canvas pb-28 sm:pb-32">
       <Frame>
         <Display className="max-w-[22ch] text-[clamp(2.2rem,1.3rem+3vw,4.2rem)] leading-[1.04] text-ink-2">
-          Built for brands that are good at everything except the factory.
+          Built for people launching sportswear, and people who already make it.
         </Display>
 
         {/* Keyboard focus holds the strip still so a tabbed-to segment stays put. */}

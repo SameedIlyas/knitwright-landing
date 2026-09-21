@@ -16,7 +16,7 @@ type Key = Panel["key"];
 
 const PHOTOS: Record<Key, { src: StaticImageData; alt: string }> = {
   spec: { src: spec, alt: "Hands cutting a paper sewing pattern" },
-  signoff: { src: signoff, alt: "A technician checking fabric at a cutting table" },
+  signoff: { src: signoff, alt: "Pattern pieces laid out on a cutting table" },
   costing: { src: costing, alt: "Folded fabric stacked by colour" },
   make: { src: make, alt: "Hands guiding fabric through a sewing machine" },
   escrow: { src: escrow, alt: "Cartons and packing supplies ready to ship" },

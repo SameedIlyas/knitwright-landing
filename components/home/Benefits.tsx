@@ -29,19 +29,19 @@ const ROW_MEDIA: Record<Row["key"], RowMedia> = {
     label: "See the spec update live",
     spot: { x: "45%", y: "46%" },
     callouts: [
-      { text: "Annotated technical flats", at: "left-[6%] top-[12%]" },
-      { text: "Graded size run with tolerances", at: "right-[6%] bottom-[12%]" },
+      { text: "Tech pack in under 10 minutes", at: "left-[6%] top-[12%]" },
+      { text: "Graded XS to 3XL", at: "right-[6%] bottom-[12%]" },
     ],
   },
   signoff: {
     src: signoff,
     alt: "A machinist stitching a garment",
     href: "#verification",
-    label: "How verification works",
+    label: "How the spec works",
     spot: { x: "52%", y: "60%" },
     callouts: [
-      { text: "Signed by name, with a date", at: "left-[6%] top-[12%]" },
-      { text: "Seams, grading and buildability checked", at: "right-[6%] top-[14%]" },
+      { text: "Sample in 10 working days", at: "left-[6%] top-[12%]" },
+      { text: "Changes in plain language", at: "right-[6%] top-[14%]" },
     ],
   },
   make: {
@@ -51,7 +51,7 @@ const ROW_MEDIA: Record<Row["key"], RowMedia> = {
     label: "How production works",
     spot: { x: "50%", y: "62%" },
     callouts: [
-      { text: "One quality tier", at: "left-[6%] top-[12%]" },
+      { text: "From 50 pieces per style", at: "left-[6%] top-[12%]" },
       { text: "Price and lead time up front", at: "right-[6%] bottom-[12%]" },
     ],
   },
@@ -62,7 +62,7 @@ const ROW_MEDIA: Record<Row["key"], RowMedia> = {
     label: "How escrow works",
     spot: { x: "56%", y: "62%" },
     callouts: [
-      { text: "Balance held until QC passes", at: "left-[6%] top-[12%]" },
+      { text: "50% held until QC passes", at: "left-[6%] top-[12%]" },
       { text: "You release it", at: "right-[6%] bottom-[12%]" },
     ],
   },
@@ -74,7 +74,7 @@ const ROW_MEDIA: Record<Row["key"], RowMedia> = {
     spot: { x: "50%", y: "50%" },
     callouts: [
       { text: "Same spec, same line", at: "left-[6%] top-[12%]" },
-      { text: "Same price band", at: "right-[6%] bottom-[12%]" },
+      { text: "Delivered in 3 to 4 weeks", at: "right-[6%] bottom-[12%]" },
     ],
   },
 };

@@ -6,19 +6,19 @@
 
 export const SITE = {
   name: "Knitwright",
-  tagline: "From idea to made — without ever managing a factory.",
+  tagline: "From sketch to shipped. Sportswear designed, made and delivered.",
   lockup: "Spec. Make. Ship.",
-  title: "Knitwright — sportswear production, specced and made",
+  title: "Knitwright | Sportswear from design to delivery",
   description:
-    "Upload a design. Get a factory-ready spec signed by a named technician, then have it made and shipped. No factory to manage. Early access open.",
-  ogTitle: "From idea to made — without ever managing a factory.",
+    "Bring a sketch or an idea. Get a factory-ready tech pack in minutes, then have it sampled, made in Sialkot and shipped. From 50 pieces. Early access open.",
+  ogTitle: "From sketch to shipped. Sportswear designed, made and delivered.",
   ogDescription:
-    "Knitwright drafts your spec, a named technician signs it, and we make and ship it. Built for sportswear brands.",
+    "Knitwright drafts your tech pack and patterns in minutes, then samples, makes and ships your sportswear from Sialkot.",
 } as const;
 
 export const NAV_LINKS = [
   { href: "#how-it-works", label: "How it works" },
-  { href: "#verification", label: "Verification" },
+  { href: "#verification", label: "The spec" },
   { href: "#production", label: "Production" },
   { href: "#faq", label: "FAQ" },
 ] as const;
@@ -39,24 +39,24 @@ export const BUILT_FOR = {
   marquee: ["Spec", "Make", "Ship", "Signed", "Measured", "Released by you"],
   segments: [
     {
-      name: "Performance and training brands",
-      makes: "Training tees, running tops, base layers",
-      why: "Technical fabrics and tolerances matter. The spec engineering is the hard part.",
+      name: "First-time sportswear founders",
+      makes: "Training tees, run tops, first collections",
+      why: "You bring the idea. We handle the spec, the sample and a first run from 50 pieces.",
     },
     {
-      name: "Activewear labels",
-      makes: "Everyday athletic tops, lifestyle-athletic",
-      why: "Small first runs, fast iteration, clean reorders.",
+      name: "Designers and product teams",
+      makes: "Tech packs, graded patterns, DXF export",
+      why: "Skip a week of pattern work per style. Export it, or send it straight to our line.",
     },
     {
-      name: "Team kit and club uniforms",
-      makes: "Club tees, warm-up tops, polos, sublimated kit",
-      why: "Repeat orders every season. Logos and panel colours, the same spec every time.",
+      name: "Clubs, gyms and academies",
+      makes: "Club kit, polos, training tops",
+      why: "Small runs, a full size range from XS to 3XL, and easy reorders every season.",
     },
     {
-      name: "Creator and community brands",
-      makes: "Merch that has to feel like real product",
-      why: "No production knowledge, a high quality bar, and someone accountable.",
+      name: "Creators and coaches",
+      makes: "Tees, raglans, base layers",
+      why: "Launch a drop without learning manufacturing. Restock in 3 to 4 weeks when it sells.",
     },
   ],
   productPerson: {
@@ -64,8 +64,8 @@ export const BUILT_FOR = {
     body: "Every point of measurement, grade and tolerance is in the spec, editable, and moves the pattern, the flat and the 3D garment with it.",
   },
   notFor: {
-    title: "Not a marketplace. Not a directory. Not print-on-demand.",
-    body: "If you want to pick and manage your own factory, we're not the right fit — and you can still take your tech pack with you.",
+    title: "And for the person who has never seen one.",
+    body: "You don't need to know what a grade rule is. Describe what you want, approve the sample, and we handle the rest.",
   },
 } as const;
 
@@ -136,7 +136,7 @@ export type Actor = "YOU" | "KNITWRIGHT";
 export const FLOW = {
   label: "How it works",
   title: "Four steps. You do two of them.",
-  sub: "The path is short on purpose. You bring the idea and the approval. We carry everything in between.",
+  sub: "The path is short on purpose. You bring the idea and the approvals. We carry everything in between.",
   steps: [
     {
       title: "Upload what you have",
@@ -185,20 +185,20 @@ export const SPEC_LIVE = {
 
 export const VERIFICATION = {
   label: "Verification",
-  title: "A named human signs every spec.",
-  body: "AI drafting a tech pack is becoming cheap — and a confidently wrong seam allowance is something a founder can't catch. Every Knitwright spec is verified by a technician in our studio, by name, with a date. That sign-off is what you're buying.",
-  verified: { state: "Verified for production", line: "Adeel R. · Studio · 2 days ago" },
+  title: "A spec a factory can build from.",
+  body: "A freelance tech pack and graded pattern take one to two weeks per style. Knitwright drafts yours in under 10 minutes: flats, measurements, grading, construction, fabric and trims. Nothing goes to bulk until you have held the sample.",
+  verified: { state: "Ready for sampling", line: "Spec v3 · saved 2 minutes ago" },
   unverified: { state: "Unverified draft", line: "Spec changed since sign-off · re-verification queued" },
   caption:
-    "The badge degrades the moment the spec moves away from what was signed. Trust is a fact about a specific version, not a sticker.",
+    "Factories don't quote a moodboard. They quote a spec. Most new brands stall right here, and most designers lose a week per style.",
   nameNote: "Reviewer name is illustrative.",
 } as const;
 
 export const PRODUCTION = {
   label: "Production",
-  title: "There is no factory to choose.",
-  body: "You never source, vet, brief, chase or switch a factory. You see one production tier — Knitwright Verified Production — with a quality summary, a price and a lead time. We own the routing, the QC and the guarantee.",
-  why: "Marketplaces introduce you to a factory, you go direct, and from then on the quality risk is yours. We don't run a directory, so we stay accountable for the result.",
+  title: "There is no factory to find.",
+  body: "You never source, vet, brief or chase a factory. Your order runs on lines we manage in Sialkot, from 50 pieces per style. You see one price, one lead time and one team accountable for the QC and the guarantee.",
+  why: "Marketplaces introduce you to a factory and step away, so the quality risk becomes yours. We make the order ourselves, so we stay accountable until you release the balance.",
   costing: {
     title: "Instant costing that shows its arithmetic.",
     body: "Materials and trims, make, finishing and pack, QA and spec, platform fee. The lines always add up to the price you pay. Move the quantity and every line re-derives.",
@@ -214,12 +214,12 @@ export const PRODUCTION = {
   },
   escrow: {
     title: "Money released by you, not by us.",
-    body: "Deposit into escrow at order. The balance is held until QC passes and you release it. Verified defects are money back.",
+    body: "Pay 50% to start. The other 50% sits in escrow until final QC passes and you release it. Verified defects are remade or refunded.",
     milestones: [
-      { label: "Deposit", state: "Paid" },
+      { label: "Deposit", state: "50% paid" },
       { label: "Bulk", state: "In production" },
-      { label: "Final QC", state: "Measured" },
-      { label: "Balance", state: "Held · you release" },
+      { label: "Final QC", state: "Measured to ±1 cm" },
+      { label: "Balance", state: "50% held · you release" },
     ],
   },
   stages: ["Sample", "Sample approved", "Bulk", "Final QC", "Shipped"],
@@ -230,13 +230,13 @@ export const STUDIO = {
   title: "The part you never see.",
   body: "Underneath your calm, quiet dashboard is a dense, keyboard-driven console in Sialkot, where our technicians clear specs, verify measurements against tolerance, and allocate your order across our lines. You never see it, and you never need to. That's the point.",
   place:
-    "Our studio and production lines are in Sialkot, Pakistan — one of the world's established centres for sportswear and technical apparel manufacturing. The person who signs your spec is close to the people who cut and sew it.",
+    "Our studio and production lines are in Sialkot, Pakistan, one of the world's established centres for sportswear manufacturing. The people who build your spec are close to the people who cut and sew it.",
   queue: [
-    { id: "SP-2291", style: "Crew · training tee", brand: "Brand 07", reviewer: "A. R.", sla: "02:14" },
-    { id: "SP-2290", style: "Raglan · long sleeve", brand: "Brand 12", reviewer: "S. K.", sla: "03:40" },
-    { id: "SP-2288", style: "Polo · club kit", brand: "Brand 03", reviewer: "A. R.", sla: "05:02" },
-    { id: "SP-2285", style: "Henley · base layer", brand: "Brand 19", reviewer: "M. I.", sla: "07:31" },
-    { id: "SP-2283", style: "V-neck · run top", brand: "Brand 07", reviewer: "S. K.", sla: "09:12" },
+    { id: "SP-2291", style: "Crew · training tee", brand: "Brand 07", stage: "Sampling", sla: "02:14" },
+    { id: "SP-2290", style: "Raglan · long sleeve", brand: "Brand 12", stage: "Cutting", sla: "03:40" },
+    { id: "SP-2288", style: "Polo · club kit", brand: "Brand 03", stage: "Sewing", sla: "05:02" },
+    { id: "SP-2285", style: "Henley · base layer", brand: "Brand 19", stage: "Final QC", sla: "07:31" },
+    { id: "SP-2283", style: "V-neck · run top", brand: "Brand 07", stage: "Packing", sla: "09:12" },
   ],
   lines: [
     { name: "Line A", load: 0.72 },
@@ -250,24 +250,24 @@ export const WHY = {
   title: "Other tools hand you a document. We hand you a finished product.",
   reasons: [
     {
-      title: "A named human signs every spec",
-      body: "Every spec is verified by a technician in our studio, by name, with a date. That sign-off is what you're buying.",
+      title: "No tech pack? Start with an idea",
+      body: "Factories won't quote a moodboard. We turn yours into a spec they can build from, in under 10 minutes.",
     },
     {
       title: "There is no factory to manage",
-      body: "One production tier with a quality summary, a price and a lead time. We own the routing, the QC and the guarantee.",
+      body: "No vetting ten vendors or paying for three sample rounds. We make it ourselves and own the QC and the guarantee.",
     },
     {
-      title: "The spec is one source of truth",
-      body: "The flat, the 3D garment, the graded table and the pattern pieces are four views of one spec. Nothing drifts.",
+      title: "Patterns in minutes, not weeks",
+      body: "Drafted and graded from XS to 3XL at once. Change a sleeve or a fit and every piece updates with it.",
     },
     {
       title: "Your money waits for you",
-      body: "Deposit into escrow at order. The balance is held until QC passes and you release it. Verified defects are money back.",
+      body: "Pay 50% to start. The rest sits in escrow until QC passes and you release it. Verified defects are remade or refunded.",
     },
     {
-      title: "Built for sportswear, not all of fashion",
-      body: "Style rules, fit, grading and tolerances tuned to athletic tops: crew, V-neck, raglan, polo, henley.",
+      title: "Start at 50 pieces, not 500",
+      body: "Test a design before you bet on it. Sample in 10 working days, bulk in 4 to 5 weeks.",
     },
     {
       title: "Your designs stay yours",
@@ -316,7 +316,7 @@ export const REORDER = {
 export const EARLY_ACCESS = {
   label: "Early access",
   title: "We're onboarding a first group of brands.",
-  sub: "Tell us what you make. We're taking a small number of brands through their first production cycles so we can get the spec engineering right before we scale.",
+  sub: "Tell us what you want to make, even if it's still an idea. We're taking a small number of brands through their first production cycles, from 50 pieces per style.",
   path: [
     { step: "Request early access", happens: "Fill in the short form.", you: "60 seconds: email, brand, what you make, volume." },
     { step: "We get in touch", happens: "We reply when a slot opens in your category.", you: "Reply with a reference photo to move up the list." },
@@ -345,23 +345,23 @@ export const FAQ = {
       items: [
         {
           q: "What is Knitwright, in one sentence?",
-          a: "A production operating system for sportswear brands: we turn your design into a verified, factory-ready spec, then make it and ship it.",
+          a: "It turns a sportswear idea into a factory-ready tech pack in minutes, then samples, makes and ships it from Sialkot.",
         },
         {
           q: "What do I need to start?",
-          a: "A reference — a photo, sketch, or a garment you like — plus the category and a rough quantity. No tech pack or production experience needed.",
+          a: "A sketch, a photo, a reference product or a description. No tech pack, pattern or factory needed.",
         },
         {
           q: "What can you make today?",
-          a: "Knit tops: crew, V-neck, raglan, polo and henley, in cap, short, three-quarter or long sleeves, cropped to long body lengths, athletic or relaxed fit. More categories follow.",
+          a: "Athletic tops: crew, V-neck, raglan, polo, henley, training tees, club kit, base layers and run tops, in XS to 3XL. More categories are coming.",
         },
         {
           q: "Is the spec generated by AI?",
-          a: "The first draft is. Then a technician in our studio checks it and signs it by name. AI is how we're fast; the sign-off is why you can trust it.",
+          a: "Yes. AI drafts the flats, measurements, grading and construction notes. You can edit all of it, and nothing goes to bulk until you approve a physical sample.",
         },
         {
           q: "Can I change the spec myself?",
-          a: "Yes. Describe the change in plain language, or edit the measurement table directly. Every change after sign-off marks the spec as unverified until a technician re-checks it.",
+          a: "Yes. Describe the change in plain language or edit any measurement. The flat, the graded table and the pattern pieces update together.",
         },
       ],
     },
@@ -369,25 +369,24 @@ export const FAQ = {
       name: "Production",
       items: [
         {
-          q: "Who makes my garments?",
-          a: "Knitwright Verified Production — lines we own and manage in Sialkot, Pakistan. You never deal with a factory directly.",
+          q: "What is the minimum order?",
+          a: "50 pieces per style, split across sizes, in up to 2 colourways.",
         },
         {
-          q: "Do I get to pick the factory?",
-          a: "No, and that's deliberate. You get one production tier with a quality guarantee behind it. We handle the routing and we're accountable for the result.",
+          q: "How long does it take?",
+          a: "Sample in 10 working days, bulk in 4 to 5 weeks after you approve it, shipping in 5 to 8 days. A first run takes about 8 to 10 weeks. Reorders take 3 to 4.",
         },
         {
-          q: "Can I order a sample first?",
-          a: "Yes. Sample first or straight to bulk is your choice on every order.",
+          q: "Where is it made?",
+          a: "On production lines we manage in Sialkot, Pakistan. You never deal with a factory.",
         },
         {
-          q: "How is quality checked?",
-          a: "Samples and bulk are measured against your spec's own tolerances, and bulk goes through inline QC against an AQL standard, with photos.",
+          q: "How do you check quality?",
+          a: "Every order is measured against your spec, to ±1 cm on key measurements, and inspected to AQL 2.5 before it ships.",
         },
         {
-          q: "What's the minimum order, and what are the lead times?",
-          a: "We'll confirm minimums and lead-time ranges per category when we open your slot. Every style gets a quote with the lead time at each quantity tier.",
-          placeholder: true,
+          q: "Where do you ship?",
+          a: "By air express to the US, UK, EU and Australia. Import duties are paid by you on arrival.",
         },
       ],
     },
@@ -395,17 +394,16 @@ export const FAQ = {
       name: "Money and risk",
       items: [
         {
-          q: "How does payment work?",
-          a: "A deposit into escrow when you order. The balance is held until QC passes and you release it.",
-        },
-        {
-          q: "What if the goods are wrong?",
-          a: "Your balance stays in escrow until you release it, and verified defects are money back.",
-        },
-        {
           q: "What does it cost?",
-          a: "Pricing is being finalised with our first group of brands. In the product, every style gets an itemised per-unit quote with the lines shown.",
-          placeholder: true,
+          a: "Drafting a spec is free during early access. Production is quoted per style with the full breakdown: materials, make, finishing, QA and platform fee.",
+        },
+        {
+          q: "How does payment work?",
+          a: "You pay 50% to start. The other 50% sits in escrow until final QC passes and you release it.",
+        },
+        {
+          q: "What if there is a defect?",
+          a: "Report it within 14 days of delivery. Verified defects are remade or refunded.",
         },
       ],
     },
@@ -414,15 +412,15 @@ export const FAQ = {
       items: [
         {
           q: "Who owns my designs?",
-          a: "You do, entirely. Your specs are never shown to another brand.",
+          a: "You do, including the spec and the pattern pieces.",
         },
         {
-          q: "Can I take my tech pack to another factory?",
-          a: "Yes. Export the tech pack document and the DXF pattern pieces any time. We'd rather earn the production than lock it.",
+          q: "Will other brands see my spec?",
+          a: "No. Specs are never shown to another brand.",
         },
         {
-          q: "When can I start?",
-          a: "We're onboarding a first group of brands now. Request early access and we'll be in touch when a slot opens in your category.",
+          q: "Can I export my tech pack and patterns?",
+          a: "Yes. Export the full tech pack and DXF pattern pieces at any time.",
         },
       ],
     },
@@ -434,8 +432,8 @@ export const FAQ = {
    the sections above; nothing here introduces a new claim. */
 
 export const HOME_HERO = {
-  headline: ["From idea to made.", "Without managing a factory."],
-  sub: "Upload a design. A named technician signs the spec. We make it and ship it to you.",
+  headline: ["From sketch to shipped.", "Designed, made and delivered."],
+  sub: "Bring a sketch or an idea. Get a factory-ready tech pack in minutes. We make it and ship it.",
   card: {
     title: "Verified for production",
     body: "Every spec is checked for seam allowances, grading and buildability, then signed by name with a date.",
@@ -447,15 +445,15 @@ export const HOME_HERO = {
 } as const;
 
 export const GALLERY = {
-  title: "One product, from the first sketch to the last carton.",
-  sub: "The hard part was never the design. It's the engineering of the spec, and the execution behind it.",
+  title: "One team, from the first sketch to the last carton.",
+  sub: "From 50 pieces per style. Sample in 10 working days. At your door in about 8 weeks.",
   panels: [
-    { key: "spec", title: "Spec", points: ["Annotated technical flats", "Graded size run", "Construction, fabric and trims"] },
-    { key: "signoff", title: "Sign-off", points: ["Seam allowances", "Grading logic", "Buildability", "Tolerances"] },
+    { key: "spec", title: "Spec", points: ["Annotated technical flats", "Graded size run, XS to 3XL", "Construction, fabric and trims"] },
+    { key: "signoff", title: "Patterns", points: ["DXF pattern pieces", "Seam allowances", "Grading rules", "Tolerances"] },
     { key: "costing", title: "Costing", points: ["Materials and trims", "Make", "Finishing and pack", "QA and spec"] },
-    { key: "make", title: "Make", points: ["Sample", "Bulk", "Final QC"] },
-    { key: "escrow", title: "Escrow", points: ["Deposit at order", "Balance held", "You release it"] },
-    { key: "reorder", title: "Reorder", points: ["Same spec", "Same line", "Same price band"] },
+    { key: "make", title: "Make", points: ["Sample in 10 days", "Bulk in 4 to 5 weeks", "Final QC"] },
+    { key: "escrow", title: "Escrow", points: ["50% deposit", "50% held", "You release it"] },
+    { key: "reorder", title: "Reorder", points: ["Same spec", "Same line", "3 to 4 weeks"] },
   ],
 } as const;
 
@@ -464,27 +462,27 @@ export const BENEFITS = {
     {
       key: "spec",
       title: "We draft the spec.",
-      body: "Upload a photo, sketch, competitor product or moodboard. Knitwright drafts annotated flats, a graded measurement table with tolerances, construction notes, fabric and trims.",
+      body: "Upload a photo, sketch, reference product or moodboard, or just describe it. In under 10 minutes you get annotated flats, a graded size table, construction notes, fabric and trims.",
     },
     {
       key: "signoff",
-      title: "A technician signs it.",
-      body: "A technician in our studio checks what software can't be trusted to — seam allowances, grading logic, buildability — and signs it by name, with a date.",
+      title: "We sample it.",
+      body: "We cut and sew a sample from your spec and express it to you in 10 working days. Ask for changes in plain language and the spec updates with them.",
     },
     {
       key: "make",
-      title: "We make it.",
-      body: "Production runs on lines we own and manage. You see one quality tier, a price, a lead time, and a guarantee. No factory to choose.",
+      title: "We make it and ship it.",
+      body: "Bulk runs on lines we manage in Sialkot, from 50 pieces per style, in 4 to 5 weeks. Then 5 to 8 days by air express to your door.",
     },
     {
       key: "escrow",
       title: "You release the money.",
-      body: "Deposit into escrow at order. The balance is held until QC passes and you release it. Verified defects are money back.",
+      body: "Pay 50% to start. The other 50% sits in escrow until final QC passes and you release it. Verified defects are remade or refunded.",
     },
     {
       key: "reorder",
       title: "Reorder in one click.",
-      body: "Same spec, same line, same price band. No re-briefing, no re-sourcing.",
+      body: "Same spec, same line, same price band. No sampling, so it lands in 3 to 4 weeks.",
     },
   ],
 } as const;
@@ -515,9 +513,9 @@ export const ASSISTANT = {
 } as const;
 
 export const FOOTER = {
-  cta: "You will never talk to a factory.",
-  ctaAccent: "That's the feature.",
-  line: "A production operating system for sportswear brands.",
+  cta: "One team from sketch to carton.",
+  ctaAccent: "Made in Sialkot.",
+  line: "Sportswear, from design to delivery.",
   links: [
     { href: "#privacy", label: "Privacy" },
     { href: "#terms", label: "Terms" },

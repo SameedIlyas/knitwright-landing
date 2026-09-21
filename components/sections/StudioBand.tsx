@@ -65,7 +65,7 @@ function Console() {
               <caption className="sr-only">Illustrative studio review queue</caption>
               <thead>
                 <tr className="text-left text-chalk-muted">
-                  {["ID", "Style", "Brand", "Reviewer", "SLA"].map((h) => (
+                  {["ID", "Style", "Brand", "Stage", "SLA"].map((h) => (
                     <th key={h} scope="col" className="px-5 py-3 font-normal uppercase tracking-wider">{h}</th>
                   ))}
                 </tr>
@@ -85,7 +85,7 @@ function Console() {
                       </td>
                       <td className={`relative px-5 ${on ? "text-white" : "text-chalk"}`}>{r.style}</td>
                       <td className="relative px-5 text-chalk-muted">{r.brand}</td>
-                      <td className="relative px-5 text-chalk-muted">{r.reviewer}</td>
+                      <td className="relative px-5 text-chalk-muted">{r.stage}</td>
                       <td className={`relative px-5 tabular-nums ${on ? "text-[#8296ff]" : "text-chalk-muted"}`}>{r.sla}</td>
                     </tr>
                   );
